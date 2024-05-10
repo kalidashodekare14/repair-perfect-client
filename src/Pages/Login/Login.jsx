@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../assets/google.png'
 import './Login.css'
 import { MdOutlineMail } from 'react-icons/md';
@@ -10,6 +10,9 @@ import UseAuth from '../../Hooks/UseAuth';
 const Login = () => {
 
     const { handleLoginUser, handleGoogleUser } = UseAuth()
+    const location = useLocation()
+    const navigate = useNavigate()
+
 
     const handleLogin = e => {
         e.preventDefault()
@@ -20,6 +23,8 @@ const Login = () => {
         handleLoginUser(email, password)
             .then(result => {
                 console.log(result.user)
+                navigate(location?.state ? location.state : '/')
+
             })
             .catch(error => {
                 console.log(error.message)
@@ -28,13 +33,15 @@ const Login = () => {
 
     const handleGoogleLogin = e => {
         handleGoogleUser()
-        .then(result =>{
-            console.log(result.user)
-        })
-        .catch(error =>{
-            console.log(error.message)
-        })
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
     }
+
+  
 
 
     return (

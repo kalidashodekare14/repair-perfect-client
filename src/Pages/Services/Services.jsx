@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
 
     const [services, setServices] = useState([])
+
 
     useEffect(() => {
         axios.get('http://localhost:5000/services')
@@ -45,7 +47,9 @@ const Services = () => {
                                             <h1>{service.ProviderName}</h1>
                                         </div>
                                     </div>
-                                    <button className='btn border-blue-500 hover:text-white hover:bg-blue-500 bg-opacity-0'>View Details</button>
+                                    <Link to={`/services_details/${service._id}`}>
+                                        <button className='btn border-blue-500 hover:text-white hover:bg-blue-500 bg-opacity-0'>View Details</button>
+                                    </Link>
 
                                 </div>
                             </div>
