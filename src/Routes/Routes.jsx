@@ -49,13 +49,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/update_manage/:id',
-                element: <UpdateManage></UpdateManage>,
+                element: <PrivateRoutes><UpdateManage></UpdateManage></PrivateRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/update_services/${params.id}`)
                
             },
             {
                 path: '/booked_service',
-                element: <BookedService></BookedService>
+                element: <PrivateRoutes><BookedService></BookedService></PrivateRoutes>
             },
             {
                 path: 'service_to_do',
