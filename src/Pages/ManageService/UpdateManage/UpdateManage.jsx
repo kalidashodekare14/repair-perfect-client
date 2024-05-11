@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -43,6 +44,9 @@ const UpdateManage = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>Update Manage || Repair Perfect</title>
+            </Helmet>
             <div className='flex min-h-screen bg-base-300 justify-center items-center'>
                 <form onSubmit={updateService} className='w-3/6 border bg-white p-5  space-y-5'>
                     <h1 className='font-poetsen text-4xl text-center my-10'>Update Your Service</h1>

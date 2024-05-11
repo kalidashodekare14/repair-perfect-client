@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 const Services = () => {
@@ -19,7 +20,9 @@ const Services = () => {
 
     return (
         <div className='lg:mx-20'>
-
+            <Helmet>
+                <title>Services || Repair Perfect</title>
+            </Helmet>
             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
                     services.map(service => (

@@ -4,6 +4,7 @@ import { FaLock, FaUser } from 'react-icons/fa';
 import { MdOutlineMail } from 'react-icons/md';
 import { IoMdPhotos } from 'react-icons/io';
 import UseAuth from '../../Hooks/UseAuth';
+import { Helmet } from 'react-helmet-async';
 
 const SignUp = () => {
 
@@ -30,6 +31,9 @@ const SignUp = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>Sign Up || Repair Perfect</title>
+            </Helmet>
             <div className='flex justify-center items-center background min-h-screen bg-cover bg-center bg-no-repeat'>
                 <div className='w-2/5	 p-10 border backdrop-blur-lg'>
                     <form onSubmit={handleRegister} className='space-y-3'>

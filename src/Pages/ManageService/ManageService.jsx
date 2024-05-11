@@ -5,6 +5,7 @@ import { MdDeleteForever } from 'react-icons/md';
 import { FaPen } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -59,6 +60,9 @@ const ManageService = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Manage Service || Repair Perfect</title>
+            </Helmet>
             <h1 className='text-4xl text-center my-5'>Manage Your Services</h1>
             <div>
                 <div className="overflow-x-auto">

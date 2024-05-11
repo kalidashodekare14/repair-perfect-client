@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import UseAuth from '../../Hooks/UseAuth';
+import { Helmet } from 'react-helmet-async';
 
 const BookedService = () => {
 
     const { user } = UseAuth()
     const [booked, setBooked] = useState([])
+    const [message, setMessage] = useState('')
 
     useEffect(() => {
         axios.get(`http://localhost:5000/purchase/${user?.email}`)
@@ -15,12 +17,14 @@ const BookedService = () => {
             })
     }, [user])
 
-    console.log(booked)
 
-
+   
 
     return (
         <div>
+             <Helmet>
+                <title>Purchase  || Repair Perfect</title>
+            </Helmet>
             <h1 className='text-3xl text-center my-5'>Your Purchase</h1>
             <div>
                 <div className="overflow-x-auto">
@@ -39,9 +43,10 @@ const BookedService = () => {
                             </tr>
                         </thead>
                         <tbody>
+                             
                             {
                                 booked.map(book => (
-                                    <tr>
+                                    <tr key={book._id}>
                                         <th>
 
                                         </th>

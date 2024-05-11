@@ -4,6 +4,7 @@ import './Login.css'
 import { MdOutlineMail } from 'react-icons/md';
 import { FaLock } from 'react-icons/fa';
 import UseAuth from '../../Hooks/UseAuth';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -46,6 +47,9 @@ const Login = () => {
 
     return (
         <div className='flex justify-center items-center background min-h-screen bg-cover bg-center bg-no-repeat'>
+            <Helmet>
+                <title>Login || Repair Perfect</title>
+            </Helmet>
             <div className='w-2/5	 p-10 border backdrop-blur-lg'>
                 <form onSubmit={handleLogin} className='space-y-3'>
                     <h1 className='text-center text-4xl text-white'>Log In</h1>

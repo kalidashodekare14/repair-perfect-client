@@ -2,6 +2,7 @@ import React from 'react';
 import UseAuth from '../../Hooks/UseAuth';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const AddService = () => {
 
@@ -43,6 +44,9 @@ const AddService = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Add Service || Repair Perfect</title>
+            </Helmet>
             <div className='flex min-h-screen bg-base-300 justify-center items-center'>
                 <form onSubmit={handleAddService} className='w-3/6 border bg-white p-5  space-y-5'>
                     <h1 className='font-poetsen text-4xl text-center my-10'>Add Your Service</h1>

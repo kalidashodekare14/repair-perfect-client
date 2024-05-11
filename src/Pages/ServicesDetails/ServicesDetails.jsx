@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import UseAuth from "../../Hooks/UseAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const ServicesDetails = () => {
@@ -18,14 +19,20 @@ const ServicesDetails = () => {
 
     const handleBookData = e => {
         e.preventDefault()
+
+        if(user.email === details.providerEmail){
+            return toast.error("You cannot purchase the services you have added.");
+        }
+
+
         const from = e.target
         const address = from.address.value
         const bookInfo = {
             serviceId: details._id,
             service_Name: details?.service_name,
             service_image: details?.photoUrl,
-            provider_email: user?.email,
-            provider_name: user?.displayName,
+            provider_email: details?.providerEmail,
+            provider_name: details?.ProviderName,
             current_user_email: user?.email,
             current_user_name: user?.displayName,
             service_taking_date: startDate,
@@ -44,6 +51,9 @@ const ServicesDetails = () => {
 
     return (
         <div className="min-h-screen flex justify-center items-center bg-base-200">
+            <Helmet>
+                <title>Services Details || Repair Perfect</title>
+            </Helmet>
             <div className="bg-white w-[60%]">
                 <div className="flex justify-between items-center flex-col lg:flex-row-reverse">
                     <div className="w-[40%] relative ">
