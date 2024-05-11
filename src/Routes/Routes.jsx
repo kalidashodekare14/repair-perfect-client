@@ -11,6 +11,7 @@ import BookedService from "../Pages/BookedService/BookedService";
 import ServiceToDo from "../Pages/ServiceToDo/ServiceToDo";
 import ServicesDetails from "../Pages/ServicesDetails/ServicesDetails";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import UpdateManage from "../Pages/ManageService/UpdateManage/UpdateManage";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +46,12 @@ const router = createBrowserRouter([
             {
                 path: '/manage_service',
                 element: <ManageService></ManageService>
+            },
+            {
+                path: '/update_manage/:id',
+                element: <UpdateManage></UpdateManage>,
+                loader: ({params}) => fetch(`http://localhost:5000/update_services/${params.id}`)
+               
             },
             {
                 path: '/booked_service',

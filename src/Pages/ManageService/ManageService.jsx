@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import UseAuth from '../../Hooks/UseAuth';
 import { MdDeleteForever } from 'react-icons/md';
 import { FaPen } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 
@@ -15,12 +17,45 @@ const ManageService = () => {
     useEffect(() => {
         axios.get(`http://localhost:5000/services/${user?.email}`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setManage(res.data)
             })
-    }, [manage])
+    }, [user])
 
-    console.log(manage)
+    // console.log(manage)
+
+    const handleDelete = id => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axios.delete(`http://localhost:5000/services/${id}`)
+                    .then(res => {
+                        console.log(res.data)
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted",
+                                text: "Your Service has been deleted.",
+                                icon: "success"
+                            });
+                            const reaming = manage.filter(data => data._id !== id)
+                            setManage(reaming)
+                        }
+                    })
+
+
+            }
+        });
+
+    }
 
     return (
         <div>
@@ -36,7 +71,7 @@ const ManageService = () => {
 
                                     </label>
                                 </th>
-                                <th>Name</th>
+                                <th>image</th>
                                 <th>Service Name</th>
                                 <th>Price</th>
                                 <th>Email</th>
@@ -48,7 +83,7 @@ const ManageService = () => {
                             {/* row 1 */}
                             {
                                 manage.map((info, index) => (
-                                    <tr>
+                                    <tr key={info._id}>
                                         <th>
                                             <label>
                                                 <span>{index}</span>
@@ -57,13 +92,9 @@ const ManageService = () => {
                                         <td>
                                             <div className="flex items-center gap-3">
                                                 <div className="avatar">
-                                                    <div className="mask mask-squircle w-12 h-12">
-                                                        <img src={info.providerImage} alt="Avatar Tailwind CSS Component" />
+                                                    <div className="mask mask-squircle w-20">
+                                                        <img src={info.photoUrl} alt="" />
                                                     </div>
-                                                </div>
-                                                <div>
-                                                    <div className="font-bold">{info.ProviderName}</div>
-                                                    <div className="text-sm opacity-50">United States</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -73,11 +104,10 @@ const ManageService = () => {
                                         <td>{info.service_area}</td>
                                         <td>
                                             <div className='flex items-center  space-x-5'>
-                                                <div className='btn'>
-                                                    <MdDeleteForever className='text-2xl' />
-                                                </div>
-                                                <div className='btn'>
+                                                <Link to={`/update_manage/${info._id}`} className='btn'>
                                                     <FaPen className='text-[19px]' />
+                                                </Link><div onClick={() => handleDelete(info._id)} className='btn'>
+                                                    <MdDeleteForever className='text-2xl' />
                                                 </div>
                                             </div>
                                         </td>
