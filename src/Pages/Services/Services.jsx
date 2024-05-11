@@ -6,26 +6,32 @@ import { Link } from 'react-router-dom';
 const Services = () => {
 
     const [services, setServices] = useState([])
-
+    const [search, setSearch] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:5000/services')
             .then(res => {
                 console.log(res.data)
                 setServices(res.data)
+                setSearch(res.data)
             })
     }, [])
 
-    console.log(services)
+    const handleSearch = e =>{
+        setSearch(services.filter(s => s.service_name.toLowerCase().includes(e.target.value)))
+    }
 
     return (
         <div className='lg:mx-20'>
             <Helmet>
                 <title>Services || Repair Perfect</title>
             </Helmet>
+            <div className='flex items-center justify-center my-10'>
+            <input onChange={handleSearch} type="text" placeholder="Type here" className="form-control input input-bordered w-full max-w-xs" />
+            </div>
             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                    services.map(service => (
+                    search.map(service => (
                         <div key={service._id} className="card card-compact bg-base-100 shadow-xl">
                             <div className='relative'>
                                 <figure><img className='h-[40vh] w-full' src={service.photoUrl} alt="Shoes" /></figure>
