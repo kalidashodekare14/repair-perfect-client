@@ -27,7 +27,7 @@ const Services = () => {
                 <title>Services || Repair Perfect</title>
             </Helmet>
             <div className='flex items-center justify-center my-10'>
-            <input onChange={handleSearch} type="text" placeholder="Type here" className="form-control input input-bordered w-full max-w-xs" />
+            <input onChange={handleSearch} type="text" placeholder="Search" className="form-control input input-bordered w-full max-w-xs" />
             </div>
             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
