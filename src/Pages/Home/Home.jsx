@@ -5,6 +5,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { render } from 'react-dom';
 import CountUp from 'react-countup';
+import install from '../../assets/instalation.jpg';
+import repair from '../../assets/homeRepair.jpg';
+import painting from '../../assets/painting.jpg'
+
 import './Home.css'
 
 const Home = () => {
@@ -106,6 +110,24 @@ const Home = () => {
                             />
                         </span>
                         <span className='text-[16px] font-montserrat font-bold'>Happy Clients</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div className='text-center space-y-3 my-20'>
+                    <h3 className='text-xl text-red-500'>Home Repair Services</h3>
+                    <h1 className='text-5xl font-bold text-blue-800'>Our Services</h1>
+                    <p className='font-montserrat font-bold'>Proficient repairs for plumbing, electrical, HVAC, and carpentry. Quality service for your home's needs.</p>
+                </div>
+                <div className='flex justify-center items-center space-x-3 my-20'>
+                    <div>
+                        <img className='w-80' src={install} alt="" />
+                    </div>
+                    <div>
+                        <img className='w-80' src={repair} alt="" />
+                    </div>
+                    <div>
+                        <img className='w-80' src={painting} alt="" />
                     </div>
                 </div>
             </div>
