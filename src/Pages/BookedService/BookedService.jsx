@@ -10,7 +10,7 @@ const BookedService = () => {
     const [message, setMessage] = useState('')
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/purchase/${user?.email}`)
+        axios.get(`http://localhost:5000/purchase/${user?.email}`, { withCredentials: true })
             .then(res => {
                 setBooked(res.data)
                 console.log(res.data)
@@ -18,11 +18,11 @@ const BookedService = () => {
     }, [user])
 
 
-   
+
 
     return (
         <div>
-             <Helmet>
+            <Helmet>
                 <title>Purchase  || Repair Perfect</title>
             </Helmet>
             <h1 className='text-3xl text-center my-5'>Your Purchase</h1>
@@ -43,7 +43,7 @@ const BookedService = () => {
                             </tr>
                         </thead>
                         <tbody>
-                             
+
                             {
                                 booked.map(book => (
                                     <tr key={book._id}>
@@ -57,20 +57,20 @@ const BookedService = () => {
                                                         <img className='w-20' src={book.service_image} alt="" />
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </td>
                                         <td>
                                             {book.service_Name}
                                         </td>
                                         <td>
-                                           ${book.price}
+                                            ${book.price}
                                         </td>
                                         <td>{book.address}</td>
                                         <td>
                                             {book.serviceStatus}
                                         </td>
-                                        
+
 
                                     </tr>
                                 ))
