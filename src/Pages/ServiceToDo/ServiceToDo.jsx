@@ -1,12 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import UseAuth from '../../Hooks/UseAuth';
+import { useLoaderData } from 'react-router-dom';
 
 const ServiceToDo = () => {
 
+    const {user} = UseAuth()
     const [serviceToDo, setServiceToDo] = useState([])
+ 
     useEffect(() => {
-        axios.get('http://localhost:5000/service_to_do')
+        axios.get(`http://localhost:5000/service_to_do/${user?.email}`)
             .then(res => {
                 // console.log(res.data)
                 setServiceToDo(res.data)
