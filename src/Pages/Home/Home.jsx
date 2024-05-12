@@ -8,6 +8,10 @@ import CountUp from 'react-countup';
 import install from '../../assets/instalation.jpg';
 import repair from '../../assets/homeRepair.jpg';
 import painting from '../../assets/painting.jpg'
+import Window from '../../assets/window.webp'
+import hvac from '../../assets/HVAC.webp'
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 import './Home.css'
 
@@ -24,6 +28,23 @@ const Home = () => {
             })
     }, [])
 
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3 // optional, default to 1.
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2 // optional, default to 1.
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1 // optional, default to 1.
+        }
+    };
 
 
     return (
@@ -77,6 +98,8 @@ const Home = () => {
                                 start={0}
                                 end={30}
                                 duration={2.75}
+                                useEasing={true}
+                                separator=" "
                             />
                         </span>
                         <span className='text-[16px] font-montserrat font-bold'>Years of Experience</span>
@@ -113,22 +136,70 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='lg:mx-32'>
                 <div className='text-center space-y-3 my-20'>
                     <h3 className='text-xl text-red-500'>Home Repair Services</h3>
                     <h1 className='text-5xl font-bold text-blue-800'>Our Services</h1>
                     <p className='font-montserrat font-bold'>Proficient repairs for plumbing, electrical, HVAC, and carpentry. Quality service for your home's needs.</p>
                 </div>
-                <div className='flex justify-center items-center space-x-3 my-20'>
-                    <div>
-                        <img className='w-80' src={install} alt="" />
-                    </div>
-                    <div>
-                        <img className='w-80' src={repair} alt="" />
-                    </div>
-                    <div>
-                        <img className='w-80' src={painting} alt="" />
-                    </div>
+                <div>
+                    <Carousel
+                        className='space-x-5'
+                        responsive={responsive}
+                        draggable={false}
+                        showDots={true}
+                        autoPlaySpeed={1000}
+                        keyBoardControl={true}
+                    >
+                        <div className='h-[80vh]'>
+                            <div className='mr-5'>
+                                <img className='w-full h-[40vh]' src={install} alt="" />
+                                <div className='text-center space-y-3 mt-2'>
+                                    <h1 className='text-xl font-montserrat font-[600] '>Installation Services</h1>
+                                    <p className='font-montserrat'>
+                                        Installation services involve professional setup, assembly, and configuration of products or systems by trained technicians, ensuring safety and efficiency.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className='h-[80vh]'>
+                            <div className='mr-5'>
+                                <img className='w-full h-[40vh]' src={repair} alt="" />
+                                <div className='text-center space-y-3 mt-2'>
+                                    <h1 className='text-xl font-montserrat font-[600] '>Home Repair</h1>
+                                    <p className='font-montserrat'>Home repair encompasses the restoration or maintenance of residential properties, addressing issues such as plumbing, electrical, structural, and cosmetic repairs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='h-[80vh]'>
+                            <div className='mr-5'>
+                                <img className='w-full h-[40vh]' src={painting} alt="" />
+                                <div className='text-center space-y-3 mt-2'>
+                                    <h1 className='text-xl font-montserrat font-[600] '>Painting Services</h1>
+                                    <p className='font-montserrat'>Painting services involve the professional application of paint to residential or commercial properties, enhancing aesthetics and protecting surfaces with skilled craftsmanship.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='h-[80vh]'>
+                            <div className='mr-5'>
+                                <img className='w-full h-[40vh]' src={Window} alt="" />
+                                <div className='text-center space-y-3 mt-2'>
+                                    <h1 className='text-xl font-montserrat font-[600] '>Window repair</h1>
+                                    <p className='font-montserrat'>Revitalize your view with our professional window repair services. From fixing cracked glass to restoring faulty frames, we ensure clarity and durability for your panes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='h-[80vh]'>
+                            <div className='mr-5'>
+                                <img className='w-full h-[40vh]' src={hvac} alt="" />
+                                <div className='text-center space-y-3 mt-2'>
+                                    <h1 className='text-xl font-montserrat font-[600] '>Painting Services</h1>
+                                    <p className='font-montserrat'>Elevate your indoor comfort with our comprehensive HVAC solutions. From expert installation of cutting-edge systems to meticulous maintenance and rapid repairs. </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </Carousel>;
                 </div>
             </div>
         </div>
