@@ -12,6 +12,7 @@ import ServiceToDo from "../Pages/ServiceToDo/ServiceToDo";
 import ServicesDetails from "../Pages/ServicesDetails/ServicesDetails";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpdateManage from "../Pages/ManageService/UpdateManage/UpdateManage";
+import HomeCardDetails from "../Pages/Home/HomeCardDetails";
 
 const router = createBrowserRouter([
     {
@@ -21,6 +22,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/details/:id',
+                element: <PrivateRoutes><HomeCardDetails></HomeCardDetails></PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/detail/${params.id}`)
+
             },
             {
                 path: '/services',
@@ -50,8 +57,8 @@ const router = createBrowserRouter([
             {
                 path: '/update_manage/:id',
                 element: <PrivateRoutes><UpdateManage></UpdateManage></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/update_services/${params.id}`)
-               
+                loader: ({ params }) => fetch(`http://localhost:5000/update_services/${params.id}`)
+
             },
             {
                 path: '/booked_service',
@@ -60,7 +67,7 @@ const router = createBrowserRouter([
             {
                 path: 'service_to_do',
                 element: <PrivateRoutes><ServiceToDo></ServiceToDo></PrivateRoutes>
-                
+
             }
         ]
     }

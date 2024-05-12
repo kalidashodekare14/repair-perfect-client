@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         'roboto': "Roboto, sans-serif",
-        'poetsen': "Poetsen One, sans-serif"
+        'poetsen': "Poetsen One, sans-serif",
+        'montserrat': "Montserrat, sans-serif"
       },
 
     },
