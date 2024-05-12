@@ -3,6 +3,9 @@ import Slider from './Slider/Slider';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { render } from 'react-dom';
+import CountUp from 'react-countup';
+import './Home.css'
 
 const Home = () => {
 
@@ -60,7 +63,50 @@ const Home = () => {
                 </div>
                 <div className='flex justify-center pb-10'>
                     <button onClick={() => setAllView(6)} className='btn border-blue-500 hover:text-white hover:bg-blue-500 bg-opacity-0'>Show All</button>
-                    
+                </div>
+            </div>
+            <div className='count bg-no-repeat bg-cover bg-center bg-black lg:rounded-full rounded-3xl   lg:w-2/3 m-auto my-20 '>
+                <div className='text-white bg-gradient-to-r from-[#24a6d9bb] to-[#a63b33ab] rounded-3xl lg:rounded-full p-10 lg:space-x-10  flex flex-col lg:flex-row justify-center items-center'>
+                    <div className='flex flex-col justify-center items-center'>
+                        <span className='text-3xl font-montserrat font-extrabold'>
+                            <CountUp
+                                start={0}
+                                end={30}
+                                duration={2.75}
+                            />
+                        </span>
+                        <span className='text-[16px] font-montserrat font-bold'>Years of Experience</span>
+                    </div>
+                    <div className='flex flex-col justify-center items-center'>
+                        <span className='text-3xl font-montserrat font-extrabold'>
+                            <CountUp
+                                start={0}
+                                end={40}
+                                duration={2.75}
+                            />
+                        </span>
+                        <span className='text-[16px] font-montserrat font-bold'>Company Established</span>
+                    </div>
+                    <div className='flex flex-col justify-center items-center'>
+                        <span className='text-3xl font-montserrat font-extrabold'>
+                            <CountUp
+                                start={0}
+                                end={100}
+                                duration={2.75}
+                            />
+                        </span>
+                        <span className='text-[16px] font-montserrat font-bold'>Projects Completed</span>
+                    </div>
+                    <div className='flex flex-col justify-center items-center'>
+                        <span className='text-3xl font-montserrat font-extrabold'>
+                            <CountUp
+                                start={0}
+                                end={5000}
+                                duration={2.75}
+                            />
+                        </span>
+                        <span className='text-[16px] font-montserrat font-bold'>Happy Clients</span>
+                    </div>
                 </div>
             </div>
         </div>
