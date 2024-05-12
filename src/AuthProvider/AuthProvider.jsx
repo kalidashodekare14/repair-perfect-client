@@ -7,13 +7,16 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState([])
+    const [loader, setLoader] = useState(true)
     const provider = new GoogleAuthProvider()
 
 
     const handleRegisterUser = (email, password) => {
+        setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const handleLoginUser = (email, password) => {
+        setLoader(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const updateProfileUser = (name, photo) => {
@@ -23,9 +26,11 @@ const AuthProvider = ({ children }) => {
         })
     }
     const handleLogoutUser = () => {
+        setLoader(true)
         return signOut(auth)
     }
     const handleGoogleUser = () => {
+        setLoader(true)
         return signInWithPopup(auth, provider)
     }
 
@@ -33,11 +38,12 @@ const AuthProvider = ({ children }) => {
         onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
             console.log(currentUser)
+            setLoader(false)
         })
     }, [user])
 
 
-    const authInfo = { user, handleRegisterUser, handleLoginUser, updateProfileUser, handleLogoutUser, handleGoogleUser }
+    const authInfo = { user, loader , handleRegisterUser, handleLoginUser, updateProfileUser, handleLogoutUser, handleGoogleUser }
 
     return (
         <AuthContext.Provider value={authInfo}>

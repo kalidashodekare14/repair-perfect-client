@@ -41,11 +41,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/add_service',
-                element: <AddService></AddService>
+                element: <PrivateRoutes><AddService></AddService></PrivateRoutes>
             },
             {
                 path: '/manage_service',
-                element: <ManageService></ManageService>
+                element: <PrivateRoutes><ManageService></ManageService></PrivateRoutes>
             },
             {
                 path: '/update_manage/:id',
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'service_to_do',
-                element: <ServiceToDo></ServiceToDo>
+                element: <PrivateRoutes><ServiceToDo></ServiceToDo></PrivateRoutes>
             }
         ]
     }

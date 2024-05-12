@@ -68,7 +68,10 @@ const ServiceToDo = () => {
                                     <td>{book.address}</td>
                                     <td>{book.service_taking_date}</td>
                                     <td>
-                                        {book.serviceStatus}
+                                        <span 
+                                        className={`${book.serviceStatus === 'pending' ? 'bg-blue-500': book.serviceStatus === 'working' ? 'bg-yellow-300' :  book.serviceStatus === 'completed' ? 'bg-green-500' : ''} p-2 rounded-2xl`}>
+                                            {book.serviceStatus}
+                                        </span>
                                     </td>
                                     <td>
                                         <details className="dropdown">
