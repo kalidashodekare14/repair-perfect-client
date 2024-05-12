@@ -5,6 +5,9 @@ import { MdOutlineMail } from 'react-icons/md';
 import { FaLock } from 'react-icons/fa';
 import UseAuth from '../../Hooks/UseAuth';
 import { Helmet } from 'react-helmet-async';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
 
 
 
@@ -21,14 +24,16 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
         console.log(email, password)
+
         handleLoginUser(email, password)
             .then(result => {
                 console.log(result.user)
                 navigate(location?.state ? location.state : '/')
-
+                toast.success("Your Register Successfuly")
             })
             .catch(error => {
                 console.log(error.message)
+                toast.error("Something is rong")
             })
     }
 
@@ -36,14 +41,14 @@ const Login = () => {
         handleGoogleUser()
             .then(result => {
                 console.log(result.user)
-               navigate('/')
+                navigate('/')
             })
             .catch(error => {
                 console.log(error.message)
             })
     }
 
-  
+
 
 
     return (
@@ -62,7 +67,7 @@ const Login = () => {
                     <div className='flex items-center  border px-3'>
                         <label className=' text-2xl' htmlFor=""><FaLock />
                         </label>
-                        <input className='w-full input bg-opacity-0 placeholder-black' type="photo" name="password" placeholder='password' id="" />
+                        <input className='w-full input bg-opacity-0 placeholder-black' type="password" name="password" placeholder='password' id="" />
                     </div>
                     <input className='btn w-full mt-5 bg-opacity-5' type="submit" value="Log In" />
                     <div className='my-5 flex justify-center'>
@@ -76,6 +81,7 @@ const Login = () => {
                 <p className='mt-10'>Don't have an account?
                     <span className='text-green-500'><Link to="/sign_up">Sign Up</Link></span></p>
             </div>
+            <ToastContainer />
         </div>
     );
 };

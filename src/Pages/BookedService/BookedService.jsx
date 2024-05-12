@@ -7,7 +7,6 @@ const BookedService = () => {
 
     const { user } = UseAuth()
     const [booked, setBooked] = useState([])
-    const [message, setMessage] = useState('')
 
     useEffect(() => {
         axios.get(`http://localhost:5000/purchase/${user?.email}`, { withCredentials: true })
