@@ -85,7 +85,7 @@ const ServicesDetails = () => {
                         <div className="mt-10">
                             {/* Open the modal using document.getElementById('ID').showModal() method */}
                             <button className='btn border-blue-500 hover:text-white hover:bg-blue-500 bg-opacity-0' onClick={() => document.getElementById('my_modal_1').showModal()}>Book Now</button>
-                            <dialog id="my_modal_1" className="modal">
+                            <dialog id="my_modal_1" className="modal ">
                                 <div className="modal-box">
                                     <div className="modal-action">
                                         <form onSubmit={handleBookData}>

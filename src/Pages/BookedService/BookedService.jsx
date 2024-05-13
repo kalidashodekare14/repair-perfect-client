@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import UseAuth from '../../Hooks/UseAuth';
 import { Helmet } from 'react-helmet-async';
+import './BookedService.css'
 
 const BookedService = () => {
 
@@ -24,12 +25,16 @@ const BookedService = () => {
             <Helmet>
                 <title>Purchase  || Repair Perfect</title>
             </Helmet>
-            <h1 className='text-3xl text-center my-5'>Your Purchase</h1>
-            <div>
-                <div className="overflow-x-auto">
+            <div className='bg-fixed cover bg-no-repeat bg-cover bg-center h-[50vh]'>
+                <div className='flex flex-col items-center justify-center space-y-5 h-[50vh]'>
+                    <h1 className='text-6xl uppercase text-yellow-500'>Your Purchase</h1>
+                </div>
+            </div>
+            <div className='h-[40vh]'>
+                <div className="overflow-x-auto ">
                     <table className="table">
                         {/* head */}
-                        <thead>
+                        <thead className='text-[16px] bg-black text-slate-400'>
                             <tr>
                                 <th>
 
@@ -71,7 +76,7 @@ const BookedService = () => {
                                         <td>{book.address}</td>
                                         <td>{book.service_taking_date}</td>
                                         <td>
-                                            <span className={`${book.serviceStatus === 'pending' ? 'bg-blue-500': book.serviceStatus === 'working' ? 'bg-yellow-300' :  book.serviceStatus === 'completed' ? 'bg-green-500' : ''} p-2 rounded-2xl`}>
+                                            <span className={`${book.serviceStatus === 'pending' ? 'bg-blue-500' : book.serviceStatus === 'working' ? 'bg-yellow-300' : book.serviceStatus === 'completed' ? 'bg-green-500' : ''} p-2 rounded-2xl`}>
                                                 {book.serviceStatus}
                                             </span>
                                         </td>
