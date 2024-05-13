@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import UseAuth from '../../Hooks/UseAuth';
 import { useLoaderData } from 'react-router-dom';
+import './ServiceToDo.css'
 
 const ServiceToDo = () => {
 
-    const {user} = UseAuth()
+    const { user } = UseAuth()
     const [serviceToDo, setServiceToDo] = useState([])
- 
+
     useEffect(() => {
         axios.get(`http://localhost:5000/service_to_do/${user?.email}`)
             .then(res => {
@@ -33,10 +34,16 @@ const ServiceToDo = () => {
             <Helmet>
                 <title>Service To Do || Repair Perfect</title>
             </Helmet>
+            <div className='bg-fixed cover bg-no-repeat bg-cover bg-center h-[60vh]'>
+                <div className='flex flex-col items-center justify-center space-y-5 h-[60vh]'>
+                    <h1 className='lg:text-6xl text-4xl uppercase text-yellow-500'>Services To Do</h1>
+
+                </div>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className='text-[16px] bg-black text-slate-400'>
                         <tr>
                             <th>Image</th>
                             <th>Purchase Name</th>
@@ -47,7 +54,7 @@ const ServiceToDo = () => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='h-[20vh]'>
 
                         {
                             serviceToDo.map(book => (
@@ -72,8 +79,8 @@ const ServiceToDo = () => {
                                     <td>{book.address}</td>
                                     <td>{book.service_taking_date}</td>
                                     <td>
-                                        <span 
-                                        className={`${book.serviceStatus === 'pending' ? 'bg-blue-500': book.serviceStatus === 'working' ? 'bg-yellow-300' :  book.serviceStatus === 'completed' ? 'bg-green-500' : ''} p-2 rounded-2xl`}>
+                                        <span
+                                            className={`${book.serviceStatus === 'pending' ? 'bg-blue-500' : book.serviceStatus === 'working' ? 'bg-yellow-300' : book.serviceStatus === 'completed' ? 'bg-green-500' : ''} p-2 rounded-2xl`}>
                                             {book.serviceStatus}
                                         </span>
                                     </td>

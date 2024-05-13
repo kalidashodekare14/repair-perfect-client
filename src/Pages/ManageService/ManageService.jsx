@@ -6,7 +6,7 @@ import { FaPen } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-
+import './ManageServices.css'
 
 
 const ManageService = () => {
@@ -17,7 +17,7 @@ const ManageService = () => {
     console.log(user.email)
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/services/${user?.email}`, {withCredentials: true})
+        axios.get(`http://localhost:5000/services/${user?.email}`, { withCredentials: true })
             .then(res => {
                 console.log(res.data)
                 setManage(res.data)
@@ -64,12 +64,17 @@ const ManageService = () => {
             <Helmet>
                 <title>Manage Service || Repair Perfect</title>
             </Helmet>
-            <h1 className='text-4xl text-center my-5'>Manage Your Services</h1>
+            <div className='bg-fixed cover bg-no-repeat bg-cover bg-center h-[60vh]'>
+                <div className='flex flex-col items-center justify-center space-y-5 h-[60vh]'>
+                    <h1 className='lg:text-6xl text-3xl uppercase text-yellow-500'>Manage Your Services</h1>
+                    
+                </div>
+            </div>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
-                        <thead>
+                        <thead className='text-[16px] bg-black text-slate-400'>
                             <tr>
                                 <th>
                                     <label>
@@ -79,12 +84,12 @@ const ManageService = () => {
                                 <th>image</th>
                                 <th>Service Name</th>
                                 <th>Price</th>
-                                <th>Email</th>
+                                <th>Name</th>
                                 <th>Service Area</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className='h-[20vh]'>
                             {/* row 1 */}
                             {
                                 manage.map((info, index) => (
@@ -105,7 +110,7 @@ const ManageService = () => {
                                         </td>
                                         <td>{info.service_name}</td>
                                         <td>${info.price}</td>
-                                        <td>{info.providerEmail}</td>
+                                        <td>{info.ProviderName}</td>
                                         <td>{info.service_area}</td>
                                         <td>
                                             <div className='flex items-center  space-x-5'>

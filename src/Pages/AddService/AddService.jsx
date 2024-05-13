@@ -50,7 +50,7 @@ const AddService = () => {
             </Helmet>
             <div className='bg-fixed cover bg-no-repeat bg-center bg-cover min-h-screen'>
                 <div className='flex min-h-screen  justify-center items-center'>
-                    <form onSubmit={handleAddService} className='w-3/6 border bg-white p-5  space-y-5'>
+                    <form onSubmit={handleAddService} className='lg:w-3/6 mx-2 border bg-white p-5  space-y-5'>
                         <h1 className='font-poetsen text-4xl text-center my-10'>Add Your Service</h1>
                         <div className='flex space-x-3 items-center'>
                             <div className='w-full'>

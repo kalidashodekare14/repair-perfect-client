@@ -2,6 +2,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import './UpdateManage.css'
 
 const UpdateManage = () => {
 
@@ -48,32 +49,34 @@ const UpdateManage = () => {
             <Helmet>
                 <title>Update Manage || Repair Perfect</title>
             </Helmet>
-            <div className='flex min-h-screen bg-base-300 justify-center items-center'>
-                <form onSubmit={updateService} className='w-3/6 border bg-white p-5  space-y-5'>
-                    <h1 className='font-poetsen text-4xl text-center my-10'>Update Your Service</h1>
-                    <div className='flex space-x-3 items-center'>
-                        <div className='w-full'>
-                            <input className='input input-bordered w-full' defaultValue={service_name} type="name" name='name' />
+            <div className="bg-fixed cover bg-no-repeat bg-cover bg-center">
+                <div className='flex min-h-screen justify-center items-center'>
+                    <form onSubmit={updateService} className='lg:w-3/6 border bg-white p-5  space-y-5'>
+                        <h1 className='font-poetsen text-4xl text-center my-10'>Update Your Service</h1>
+                        <div className='flex space-x-3 items-center'>
+                            <div className='w-full'>
+                                <input className='input input-bordered w-full' defaultValue={service_name} type="name" name='name' />
+                            </div>
+                            <div className='w-full'>
+                                <input className='input input-bordered w-full' defaultValue={'$' + price} type="price" name='price' />
+                            </div>
                         </div>
-                        <div className='w-full'>
-                            <input className='input input-bordered w-full' defaultValue={'$' + price} type="price" name='price' />
+                        <div className='flex space-x-3 items-center'>
+                            <div className='w-full'>
+                                <input className='input input-bordered w-full' defaultValue={photoUrl} type="photo" name='photo' />
+                            </div>
+                            <div className='w-full'>
+                                <input className=' input input-bordered w-full' defaultValue={service_area} type="area" name='area' />
+                            </div>
                         </div>
-                    </div>
-                    <div className='flex space-x-3 items-center'>
-                        <div className='w-full'>
-                            <input className='input input-bordered w-full' defaultValue={photoUrl} type="photo" name='photo' />
+                        <div>
+                            <textarea defaultValue={description} name="description" className="w-full textarea textarea-bordered" id=""></textarea>
                         </div>
-                        <div className='w-full'>
-                            <input className=' input input-bordered w-full' defaultValue={service_area} type="area" name='area' />
+                        <div className='flex justify-center items-center'>
+                            <input className='btn w-full bg-[#c99e42cd]' type="submit" value="Update Sevice" />
                         </div>
-                    </div>
-                    <div>
-                        <textarea defaultValue={description} name="description" className="w-full textarea textarea-bordered" id=""></textarea>
-                    </div>
-                    <div className='flex justify-center items-center'>
-                        <input className='btn w-full bg-[#c99e42cd]' type="submit" value="Update Sevice" />
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     );

@@ -27,7 +27,7 @@ const BookedService = () => {
             </Helmet>
             <div className='bg-fixed cover bg-no-repeat bg-cover bg-center h-[50vh]'>
                 <div className='flex flex-col items-center justify-center space-y-5 h-[50vh]'>
-                    <h1 className='text-6xl uppercase text-yellow-500'>Your Purchase</h1>
+                    <h1 className='lg:text-6xl text-4xl uppercase text-yellow-500'>Your Purchase</h1>
                 </div>
             </div>
             <div className='h-[40vh]'>

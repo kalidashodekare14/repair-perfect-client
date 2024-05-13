@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Navigate } from 'react-router-dom';
 import UseAuth from '../../../Hooks/UseAuth';
 
 const Navbar = () => {
@@ -57,7 +57,45 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className=" menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        {links}
+
+
+                        {
+                            user ? <div>
+                                {links}
+                                <li><Link to="/add_service"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
+                                    }>Add Service
+                                </Link>
+                                </li>
+                                <li><Link to="/manage_service"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
+                                    }>Manage Service
+                                </Link>
+                                </li>
+                                <li><Link to="/manage_service"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
+                                    }>Manage Service
+                                </Link>
+                                </li>
+                                <li><Link to="/booked_service"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
+                                    }>Book Service
+                                </Link>
+                                </li>
+                                <li><Link to="/service_to_do"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
+                                    }>Service To Do
+                                </Link>
+                                </li>
+
+                            </div>
+                                : { links }
+                        }
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-xl">daisyUI</a>
