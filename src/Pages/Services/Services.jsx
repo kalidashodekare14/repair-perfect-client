@@ -10,7 +10,7 @@ const Services = () => {
     const [search, setSearch] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/services')
+        axios.get(`${import.meta.env.VITE_API_URL}/services`)
             .then(res => {
                 console.log(res.data)
                 setServices(res.data)

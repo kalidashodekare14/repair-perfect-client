@@ -40,7 +40,7 @@ const ServicesDetails = () => {
             address: address,
             serviceStatus: 'pending'
         }
-        axios.post('http://localhost:5000/purchase', bookInfo)
+        axios.post(`${import.meta.env.VITE_API_URL}/purchase`, bookInfo)
         .then(res =>{
             console.log(res.data)
             if(res.data.insertedId){

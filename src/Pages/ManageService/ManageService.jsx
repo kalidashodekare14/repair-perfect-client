@@ -17,7 +17,7 @@ const ManageService = () => {
     console.log(user.email)
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/services/${user?.email}`, { withCredentials: true })
+        axios.get(`${import.meta.env.VITE_API_URL}/services/${user?.email}`, { withCredentials: true })
             .then(res => {
                 console.log(res.data)
                 setManage(res.data)
@@ -39,7 +39,7 @@ const ManageService = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`http://localhost:5000/services/${id}`)
+                axios.delete(`${import.meta.env.VITE_API_URL}/services/${id}`)
                     .then(res => {
                         console.log(res.data)
                         if (res.data.deletedCount > 0) {

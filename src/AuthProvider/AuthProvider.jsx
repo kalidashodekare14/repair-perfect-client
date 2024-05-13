@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
                     })
             }
             else {
-                axios.post(`http://localhost:5000/logout`, logginUser, { withCredentials: true })
+                axios.post(`${import.meta.env.VITE_API_URL}/logout`, logginUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data)
                     })

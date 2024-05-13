@@ -28,7 +28,7 @@ const UpdateManage = () => {
             service_area: area,
             description: description
         }
-        axios.put(`http://localhost:5000/update_services/${_id}`, addService)
+        axios.put(`${import.meta.env.VITE_API_URL}/update_services/${_id}`, addService)
             .then(res => {
                 console.log(res.data)
                 if (res.data.modifiedCount > 0) {

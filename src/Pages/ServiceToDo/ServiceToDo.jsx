@@ -11,7 +11,7 @@ const ServiceToDo = () => {
     const [serviceToDo, setServiceToDo] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/service_to_do/${user?.email}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/service_to_do/${user?.email}`)
             .then(res => {
                 // console.log(res.data)
                 setServiceToDo(res.data)
@@ -21,7 +21,7 @@ const ServiceToDo = () => {
     // console.log(serviceToDo)
 
     const handleStatus = (_id, serviceStatus) => {
-        axios.patch(`http://localhost:5000/purchase/${_id}`, { serviceStatus })
+        axios.patch(`${import.meta.env.VITE_API_URL}/purchase/${_id}`, { serviceStatus })
             .then(res => {
                 console.log(res.data)
             })

@@ -29,7 +29,7 @@ const AddService = () => {
             ProviderName: user.displayName
         }
 
-        axios.post(`http://localhost:5000/services`, addService)
+        axios.post(`${import.meta.env.VITE_API_URL}/services`, addService)
             .then(res => {
                 console.log(res.data)
                 if (res.data.insertedId) {

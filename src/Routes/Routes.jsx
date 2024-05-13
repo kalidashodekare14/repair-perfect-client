@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivateRoutes><HomeCardDetails></HomeCardDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/detail/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/detail/${params.id}`)
 
             },
             {
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: '/services_details/:id',
                 element: <PrivateRoutes><ServicesDetails></ServicesDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/service_details/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/service_details/${params.id}`)
             },
             {
                 path: '/login',
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
             {
                 path: '/update_manage/:id',
                 element: <PrivateRoutes><UpdateManage></UpdateManage></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/update_services/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/update_services/${params.id}`)
 
             },
             {

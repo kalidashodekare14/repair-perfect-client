@@ -10,7 +10,7 @@ const BookedService = () => {
     const [booked, setBooked] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/purchase/${user?.email}`, { withCredentials: true })
+        axios.get(`${import.meta.env.VITE_API_URL}/purchase/${user?.email}`, { withCredentials: true })
             .then(res => {
                 setBooked(res.data)
                 console.log(res.data)
