@@ -12,7 +12,7 @@ const Services = () => {
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/services`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setServices(res.data)
                 setSearch(res.data)
             })

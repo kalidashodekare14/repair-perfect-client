@@ -42,7 +42,7 @@ const ServicesDetails = () => {
         }
         axios.post(`${import.meta.env.VITE_API_URL}/purchase`, bookInfo)
         .then(res =>{
-            console.log(res.data)
+            // console.log(res.data)
             if(res.data.insertedId){
                 toast.success("Your Purchase Successfuly");
             }

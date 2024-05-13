@@ -25,7 +25,7 @@ const Home = () => {
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/services`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setPopular(res.data)
             })
     }, [])

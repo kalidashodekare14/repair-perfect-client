@@ -31,7 +31,7 @@ const AddService = () => {
 
         axios.post(`${import.meta.env.VITE_API_URL}/services`, addService)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 if (res.data.insertedId) {
                     Swal.fire({
                         title: "Your Services Add Successfuly",

@@ -23,28 +23,28 @@ const Login = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        console.log(email, password)
+        // console.log(email, password)
 
         handleLoginUser(email, password)
-            .then(result => {
-                console.log(result.user)
+            .then((result) => {
+                // console.log(result.user)
                 navigate(location?.state ? location.state : '/')
                 toast.success("Your Register Successfuly")
             })
-            .catch(error => {
-                console.log(error.message)
+            .catch((error) => {
+                // console.log(error.message)
                 toast.error("Something is rong")
             })
     }
 
     const handleGoogleLogin = e => {
         handleGoogleUser()
-            .then(result => {
-                console.log(result.user)
+            .then((result) => {
+                // console.log(result.user)
                 navigate('/')
             })
-            .catch(error => {
-                console.log(error.message)
+            .catch((error) => {
+                // console.log(error.message)
             })
     }
 

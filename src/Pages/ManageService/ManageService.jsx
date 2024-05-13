@@ -14,12 +14,12 @@ const ManageService = () => {
     const { user } = UseAuth()
     const [manage, setManage] = useState([])
 
-    console.log(user.email)
+    // console.log(user.email)
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/services/${user?.email}`, { withCredentials: true })
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 setManage(res.data)
             })
     }, [user])
@@ -41,7 +41,7 @@ const ManageService = () => {
 
                 axios.delete(`${import.meta.env.VITE_API_URL}/services/${id}`)
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted",

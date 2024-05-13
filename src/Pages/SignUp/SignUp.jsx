@@ -32,28 +32,28 @@ const SignUp = () => {
         }
 
         handleRegisterUser(email, password)
-            .then(result => {
-                console.log(result.user)
+            .then((result) => {
+                // console.log(result.user)
                 updateProfileUser(name, photo)
                 navigate('/')
                 toast.success('Your Register Succesfuly')
             })
-            .catch(error => {
-                console.log(error.message)
+            .catch((error) => {
+                // console.log(error.message)
                 toast.error('Something is rong')
             })
     }
 
     const googleSignUp = () => {
         handleGoogleUser()
-            .then(result => {
-                console.log(result.user)
+            .then((result) => {
+                // console.log(result.user)
                 toast.success('Your Register Succesfuly')
                 navigate('/')
 
             })
-            .catch(error => {
-                console.log(error.message)
+            .catch((error) => {
+                // console.log(error.message)
                 toast.error('Something is rong')
             })
     }

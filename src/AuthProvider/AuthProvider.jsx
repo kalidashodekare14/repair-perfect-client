@@ -42,14 +42,14 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             if (currentUser) {
                 axios.post(`${import.meta.env.VITE_API_URL}/jwt`, logginUser, { withCredentials: true })
-                    .then(res => {
-                        console.log(res.data)
+                    .then((res) => {
+                        // console.log(res.data)
                     })
             }
             else {
                 axios.post(`${import.meta.env.VITE_API_URL}/logout`, logginUser, { withCredentials: true })
-                    .then(res => {
-                        console.log(res.data)
+                    .then((res) => {
+                        // console.log(res.data)
                     })
             }
             setLoader(false)

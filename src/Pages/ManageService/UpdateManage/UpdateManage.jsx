@@ -9,7 +9,7 @@ const UpdateManage = () => {
 
     const manage = useLoaderData()
     const { _id, service_name, price, photoUrl, service_area, description } = manage
-    console.log(_id)
+    // console.log(_id)
     const navigate = useNavigate()
 
 
@@ -30,7 +30,7 @@ const UpdateManage = () => {
         }
         axios.put(`${import.meta.env.VITE_API_URL}/update_services/${_id}`, addService)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
                         position: "center",

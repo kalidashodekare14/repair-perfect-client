@@ -22,8 +22,8 @@ const ServiceToDo = () => {
 
     const handleStatus = (_id, serviceStatus) => {
         axios.patch(`${import.meta.env.VITE_API_URL}/purchase/${_id}`, { serviceStatus })
-            .then(res => {
-                console.log(res.data)
+            .then((res) => {
+                // console.log(res.data)
             })
     }
 
