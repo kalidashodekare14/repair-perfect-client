@@ -23,7 +23,7 @@ const Home = () => {
     const [allView, setAllView] = useState(4)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/services')
+        axios.get(`http://localhost:5000/services`)
             .then(res => {
                 console.log(res.data)
                 setPopular(res.data)

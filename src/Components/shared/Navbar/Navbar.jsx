@@ -58,43 +58,37 @@ const Navbar = () => {
                     </div>
                     <ul tabIndex={0} className=" menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
 
-
                         {
                             user ? <div>
                                 {links}
-                                <li><Link to="/add_service"
-                                    className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
-                                    }>Add Service
-                                </Link>
+                                <li>
+                                    <Link to="/add_service">
+                                        Add Service
+                                    </Link>
                                 </li>
-                                <li><Link to="/manage_service"
-                                    className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
-                                    }>Manage Service
-                                </Link>
+                                <li>
+                                    <Link to="/manage_service">
+                                        Manage Service
+                                    </Link>
                                 </li>
-                                <li><Link to="/manage_service"
-                                    className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
-                                    }>Manage Service
-                                </Link>
+                                <li>
+                                    <Link to="/manage_service"
+                                        >Manage Service
+                                    </Link>
                                 </li>
-                                <li><Link to="/booked_service"
-                                    className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
-                                    }>Book Service
-                                </Link>
+                                <li>
+                                    <Link to="/booked_service">
+                                        Book Service
+                                    </Link>
                                 </li>
-                                <li><Link to="/service_to_do"
-                                    className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
-                                    }>Service To Do
-                                </Link>
+                                <li>
+                                    <Link to="/service_to_do">
+                                        Service To Do
+                                    </Link>
                                 </li>
 
                             </div>
-                                : { links }
+                                : <div>{ links }</div>
                         }
                     </ul>
                 </div>

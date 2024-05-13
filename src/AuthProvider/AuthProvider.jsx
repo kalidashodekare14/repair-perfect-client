@@ -41,13 +41,13 @@ const AuthProvider = ({ children }) => {
             const logginUser = { email: userEmail }
             setUser(currentUser)
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', logginUser, { withCredentials: true })
+                axios.post(`${import.meta.env.VITE_API_URL}/jwt`, logginUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data)
                     })
             }
             else {
-                axios.post('http://localhost:5000/logout', logginUser, { withCredentials: true })
+                axios.post(`http://localhost:5000/logout`, logginUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data)
                     })

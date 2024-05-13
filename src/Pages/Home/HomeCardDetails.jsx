@@ -9,7 +9,7 @@ const HomeCardDetails = () => {
     return (
         <div>
             <div className="hero">
-                <div className="hero-content flex-col flex-col-reverse lg:flex-row-reverse">
+                <div className="hero-content flex-col-reverse lg:flex-row-reverse">
                     <div>
                         <h1 className="text-5xl font-bold">{detail.service_name}</h1>
                         <p className="py-6 text-[16px] font-[500] text-slate-500">{detail.description}</p>
