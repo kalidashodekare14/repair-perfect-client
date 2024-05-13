@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Slider from './Slider/Slider';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -13,7 +12,10 @@ import hvac from '../../assets/HVAC.webp'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
+
+
 import './Home.css'
+import Slider from '../Slider/Slider';
 
 const Home = () => {
 
@@ -53,6 +55,19 @@ const Home = () => {
                 <title>Home || Repair Perfect</title>
             </Helmet>
             <Slider></Slider>
+            <div className='my-20 bg-fixed project bg-no-repeat bg-center bg-cover h-[100vh]'>
+                <div className='h-[100vh] bg-gradient-to-r from-[#24a6d9e9] to-[#a63b33da]'>
+                    <div className='lg:mx-32 py-10'>
+                        <div className='space-y-3 pb-10'>
+                            <p className='text-[20px] text-red-900'>Awesome Works</p>
+                            <h1 className='text-5xl font-montserrat font-[600] text-white'>Our Project</h1>
+                        </div>
+                        <div className=''>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className='my-24'>
                 <h1 className='text-4xl text-center font-poetsen'>Popular Services</h1>
                 <div className='lg:mx-40 mx-5 grid grid-cols-1 md:grid-cols-2 gap-5 my-20'>
@@ -153,7 +168,9 @@ const Home = () => {
                     >
                         <div className='h-[80vh]'>
                             <div className='mr-5'>
-                                <img className='w-full h-[40vh]' src={install} alt="" />
+                                <div className=''>
+                                    <img className='w-full h-[40vh]' src={install} alt="" />
+                                </div>
                                 <div className='text-center space-y-3 mt-2'>
                                     <h1 className='text-xl font-montserrat font-[600] '>Installation Services</h1>
                                     <p className='font-montserrat'>

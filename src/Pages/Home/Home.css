@@ -1,3 +1,26 @@
-.count{
+
+
+
+.project {
+    background-image: url(../../assets/project.webp);
+}
+
+.count {
     background-image: url(../../assets/count.jpg);
+}
+
+.pm{
+    background-image: url(../../assets/pm4.jpg);
+}
+.pm1{
+    background-image: url(../../assets/pm3.jpg);
+}
+.pm2{
+    background-image: url(../../assets/pm.jpg);
+}
+.pm3{
+    background-image: url(../../assets/pm2.webp);
+}
+.pm4{
+    background-image: url(../../assets/pm3.jpg);
 }
