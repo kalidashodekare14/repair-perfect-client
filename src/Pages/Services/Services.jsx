@@ -34,17 +34,19 @@ const Services = () => {
                 </div>
             </div>
 
-            <div className='lg:mx-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-20'>
+            <div className='lg:mx-40 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-5 my-20'>
                 {
                     search.map(service => (
-                        <div key={service._id} className="card card-compact bg-base-100 shadow-xl">
-                            <div className='relative'>
-                                <figure><img className='h-[40vh] w-full' src={service.photoUrl} alt="Shoes" /></figure>
+                        <div key={service._id} className="flex flex-col lg:flex-row justify-center items-center bg-base-100 shadow-xl">
+                            <div className='relative '>
+                                <div>
+                                    <figure><img className='h-[40vh] max-w-sm rounded-lg shadow-2xl' src={service.photoUrl} alt="Shoes" /></figure>
+                                </div>
                                 <div class="absolute top-0 opacity-0 hover:opacity-100  transition duration-700 ease-in-out hover:bg-amber-500 h-[40vh] flex w-full p-1 justify-center [clip-path:polygon(100%_19%,24%_100%,100%_100%)]">
                                     <p className='absolute  right-20 bottom-10 text-4xl text-white'>${service.price}</p>
                                 </div>
                             </div>
-                            <div className="p-5 space-y-5">
+                            <div className="flex-1 p-5 space-y-5">
                                 <div className='flex justify-between items-center'>
                                     <h2 className="text-[25px] font-poetsen">{service.service_name}</h2>
                                     <h3 className='bg-[#2a9d8f] px-2 py-2 rounded-xl text-white'>{service.service_area}</h3>

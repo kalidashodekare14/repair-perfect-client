@@ -44,26 +44,12 @@ const SignUp = () => {
             })
     }
 
-    const googleSignUp = () => {
-        handleGoogleUser()
-            .then((result) => {
-                // console.log(result.user)
-                toast.success('Your Register Succesfuly')
-                navigate('/')
-
-            })
-            .catch((error) => {
-                // console.log(error.message)
-                toast.error('Something is rong')
-            })
-    }
-
     return (
         <div>
             <Helmet>
                 <title>Sign Up || Repair Perfect</title>
             </Helmet>
-            <div className='flex justify-center items-center background min-h-screen bg-cover bg-center bg-no-repeat'>
+            <div className='flex justify-center items-center bg-fixed background min-h-screen bg-cover bg-center bg-no-repeat'>
                 <div className='w-2/5	 p-10 border backdrop-blur-lg'>
                     <form onSubmit={handleRegister} className='space-y-3'>
                         <h1 className='text-center text-4xl text-white'>Sign Up</h1>
@@ -86,13 +72,7 @@ const SignUp = () => {
                             <input className='w-full input bg-opacity-0 placeholder-black' type="password" name="password" placeholder='password' />
                         </div>
                         <input className='btn w-full mt-5 bg-opacity-5' type="submit" value="Sign Up" />
-                        <div className='my-5 flex justify-center'>
-                            <div>
-                                <button onClick={googleSignUp} className='btn w-40'>
-                                    <img className='w-10' src={google} alt="" />
-                                </button>
-                            </div>
-                        </div>
+                        
                     </form>
                     <p className='mt-10'>Already have an account?
                         <span className='text-green-500'><Link to="/login">Log in</Link></span></p>

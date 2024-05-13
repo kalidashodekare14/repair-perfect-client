@@ -13,6 +13,7 @@ import ServicesDetails from "../Pages/ServicesDetails/ServicesDetails";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpdateManage from "../Pages/ManageService/UpdateManage/UpdateManage";
 import HomeCardDetails from "../Pages/Home/HomeCardDetails";
+import Contact from "../Pages/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
                 path: '/service_to_do',
                 element: <PrivateRoutes><ServiceToDo></ServiceToDo></PrivateRoutes>
 
+            },
+            {
+                path: '/contect',
+                element: <Contact></Contact>
             }
         ]
     }

@@ -16,6 +16,7 @@ import 'react-multi-carousel/lib/styles.css';
 
 import './Home.css'
 import Slider from '../Slider/Slider';
+import ProjectSlider from '../ProjectSlider/ProjectSlider';
 
 const Home = () => {
 
@@ -55,15 +56,15 @@ const Home = () => {
                 <title>Home || Repair Perfect</title>
             </Helmet>
             <Slider></Slider>
-            <div className='my-20 bg-fixed project bg-no-repeat bg-center bg-cover h-[100vh]'>
+            <div className='bg-fixed project bg-no-repeat bg-center bg-cover h-[100vh]'>
                 <div className='h-[100vh] bg-gradient-to-r from-[#24a6d9e9] to-[#a63b33da]'>
                     <div className='lg:mx-32 py-10'>
-                        <div className='space-y-3 pb-10'>
-                            <p className='text-[20px] text-red-900'>Awesome Works</p>
-                            <h1 className='text-5xl font-montserrat font-[600] text-white'>Our Project</h1>
+                        <div className='space-y-3 pb-10 '>
+                            <p className='text-[20px] text-[#bfb90f] text-center font-semibold'>Awesome Works</p>
+                            <h1 className='text-center text-5xl font-montserrat font-[600] text-white'>Our Project</h1>
                         </div>
                         <div className=''>
-
+                            <ProjectSlider></ProjectSlider>
                         </div>
                     </div>
                 </div>
@@ -73,7 +74,7 @@ const Home = () => {
                 <div className='lg:mx-40 mx-5 grid grid-cols-1 md:grid-cols-2 gap-5 my-20'>
                     {
                         popular.slice(0, allView).map(card => (
-                            <div className="card  bg-base-100 shadow-xl">
+                            <div key={card._id} className="card  bg-base-100 shadow-xl">
                                 <figure><img className='w-full h-[50vh]' src={card.photoUrl} alt="Shoes" /></figure>
                                 <div className="p-5 space-y-5">
                                     <div className='flex justify-between items-center'>

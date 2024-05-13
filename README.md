@@ -32,6 +32,7 @@
 - [React-Helmet](https://www.npmjs.com/package/react-helmet)
 - [react-multi-carousel](https://www.npmjs.com/package/react-multi-carousel)
 - [React CountUp](https://www.npmjs.com/package/react-countup/v/2.0.0)
+- [google-map-react](https://www.npmjs.com/package/google-map-react)
 ## Category Name:  
 - Home Repair Services
 

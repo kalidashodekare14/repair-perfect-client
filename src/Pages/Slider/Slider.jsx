@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 
 import './Slider.css';
 
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 
 const Slider = () => {
     return (
@@ -16,15 +16,15 @@ const Slider = () => {
                 slidesPerView={1}
                 spaceBetween={30}
                 loop={true}
-                pagination={{
-                    clickable: true,
-                }}
+                // pagination={{
+                //     clickable: true,
+                // }}
                 autoplay={{
                     delay: 2500,
                     disableOnInteraction: false,
                 }}
                 navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
+                modules={[Autoplay, Navigation]}
                 className="mySwiper"
             >
                 <SwiperSlide>

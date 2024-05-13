@@ -13,10 +13,10 @@ const ServiceToDo = () => {
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/service_to_do/${user?.email}`)
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 setServiceToDo(res.data)
             })
-    }, [serviceToDo])
+    }, [user])
 
     // console.log(serviceToDo)
 

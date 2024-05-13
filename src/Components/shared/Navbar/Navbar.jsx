@@ -40,6 +40,13 @@ const Navbar = () => {
                 }
                 to="/services">Services</NavLink>
         </li>
+        <li>
+            <NavLink
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active:bg-none border-b-2 rounded-none border-[#fbd232]" : ""
+                }
+                to="/contect">Contect</NavLink>
+        </li>
 
     </>
 
