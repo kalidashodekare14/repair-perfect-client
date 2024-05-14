@@ -14,6 +14,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpdateManage from "../Pages/ManageService/UpdateManage/UpdateManage";
 import HomeCardDetails from "../Pages/Home/HomeCardDetails";
 import Contact from "../Pages/Contact/Contact";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
             {
                 path: '/contect',
                 element: <Contact></Contact>
+            },
+            {
+                path: '/about_us',
+                element: <AboutUs></AboutUs>
             }
         ]
     }
