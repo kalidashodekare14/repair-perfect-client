@@ -2,6 +2,7 @@ import React from 'react';
 import UseAuth from '../Hooks/UseAuth';
 import { Navigate, useLocation } from 'react-router-dom';
 import loading from '../assets/loading.gif'
+import { Hourglass } from 'react-loader-spinner';
 
 const PrivateRoutes = ({ children }) => {
 
@@ -12,8 +13,17 @@ const PrivateRoutes = ({ children }) => {
     if (loader) {
         return (
             <div className='min-h-screen flex justify-center items-center'>
-                <img className='w-20' src={loading} alt="" />
+                <Hourglass
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="hourglass-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    colors={['#306cce', '#72a1ed']}
+                />
             </div>
+
         )
     }
 

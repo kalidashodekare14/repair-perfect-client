@@ -3,11 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import './Services.css'
+import { render } from 'react-dom';
+import { Hourglass } from 'react-loader-spinner';
 
 const Services = () => {
 
     const [services, setServices] = useState([])
     const [search, setSearch] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/services`)
@@ -15,8 +18,27 @@ const Services = () => {
                 // console.log(res.data)
                 setServices(res.data)
                 setSearch(res.data)
+                setLoading(false)
             })
     }, [])
+
+    if (loading) {
+        return (
+            <div className='min-h-screen flex justify-center items-center'>
+                <Hourglass
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="hourglass-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    colors={['#306cce', '#72a1ed']}
+                />
+            </div>
+        )
+
+    }
+
 
     const handleSearch = e => {
         setSearch(services.filter(s => s.service_name.toLowerCase().includes(e.target.value)))

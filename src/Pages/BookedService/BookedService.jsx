@@ -3,20 +3,38 @@ import React, { useEffect, useState } from 'react';
 import UseAuth from '../../Hooks/UseAuth';
 import { Helmet } from 'react-helmet-async';
 import './BookedService.css'
+import { Hourglass } from 'react-loader-spinner';
 
 const BookedService = () => {
 
     const { user } = UseAuth()
     const [booked, setBooked] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/purchase/${user?.email}`, { withCredentials: true })
             .then(res => {
                 setBooked(res.data)
                 // console.log(res.data)
+                setLoading(false)
             })
     }, [user])
 
+    if (loading) {
+        return (
+            <div className='min-h-screen flex justify-center items-center'>
+                <Hourglass
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="hourglass-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    colors={['#306cce', '#72a1ed']}
+                />
+            </div>
+        )
+    }
 
 
 
@@ -49,7 +67,7 @@ const BookedService = () => {
                                 <th>Service Status</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className='h-[20vh]'>
 
                             {
                                 booked.map(book => (
@@ -84,13 +102,18 @@ const BookedService = () => {
                                 ))
                             }
 
-
-
                         </tbody>
-
-
+                        {
+                            booked.length === 0 && (
+                                <div className='flex items-center absolute left-[40%] right-[40%] top-20 text-center'>
+                                    <img className='w-10' src="https://img.hotimg.com/image1ae5758da6958592.png" alt="" />
+                                    <h1 className='text-4xl'>No Data</h1>
+                                </div>
+                            )
+                        }
 
                     </table>
+
                 </div>
             </div>
         </div>

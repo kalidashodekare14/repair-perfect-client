@@ -46,11 +46,11 @@
   
 
 .team{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.478), rgba(0,0,0,0.5)), url(../../assets/team.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.685), rgba(0, 0, 0, 0.782), rgba(0, 0, 0, 0.491)), url(../../assets/team.jpg);
 }
 .team1{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.478), rgba(0,0,0,0.5)), url(../../assets/team1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.604), rgba(0, 0, 0, 0.581), rgba(0,0,0,0.5)), url(../../assets/team1.jpg);
 }
 .team2{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.478), rgba(0,0,0,0.5)), url(../../assets/team2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.559), rgba(0, 0, 0, 0.719), rgba(0,0,0,0.5)), url(../../assets/team2.jpg);
 }

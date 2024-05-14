@@ -4,19 +4,39 @@ import { Helmet } from 'react-helmet-async';
 import UseAuth from '../../Hooks/UseAuth';
 import { useLoaderData } from 'react-router-dom';
 import './ServiceToDo.css'
+import { Hourglass } from 'react-loader-spinner';
 
 const ServiceToDo = () => {
 
     const { user } = UseAuth()
     const [serviceToDo, setServiceToDo] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/service_to_do/${user?.email}`)
             .then(res => {
                 console.log(res.data)
                 setServiceToDo(res.data)
+                setLoading(false)
             })
     }, [user])
+
+    if (loading) {
+        return (
+            <div className='min-h-screen flex justify-center items-center'>
+                <Hourglass
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="hourglass-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    colors={['#306cce', '#72a1ed']}
+                />
+            </div>
+        )
+    }
+
 
     // console.log(serviceToDo)
 
@@ -100,8 +120,15 @@ const ServiceToDo = () => {
                             ))
                         }
 
+                        {
+                            serviceToDo.length === 0 && (
+                                <div className='flex items-center absolute left-[40%] right-[40%] top-20 text-center'>
+                                    <img className='w-10' src="https://img.hotimg.com/image1ae5758da6958592.png" alt="" />
+                                    <h1 className='text-4xl'>No Data</h1>
+                                </div>
+                            )
 
-
+                        }
                     </tbody>
 
 

@@ -14,7 +14,7 @@ const AboutUs = () => {
                 <div>
                     <div className='bg-fixed cover bg-no-repeat bg-cover bg-center h-[60vh]'>
                         <div className='flex flex-col items-center justify-center space-y-5 h-[60vh]'>
-                            <h1 className='text-6xl uppercase text-yellow-500'>Contect</h1>
+                            <h1 className='text-6xl uppercase text-yellow-500'>About Us</h1>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@ const AboutUs = () => {
                     </div>
                 </div>
                 <div>
-                    <h1 className='text-4xl text-center font-[500] my-10'>Out Team</h1>
+                    <h1 className='text-4xl text-center font-[500] my-10'>Our Team</h1>
                     <div className='mx-5 lg:mx-32 mb-10 flex flex-col lg:flex-row justify-center lg:space-x-10 items-center'>
                         <div className='w-full'>
                             <img className='lg:w-[15rem] w-full h-[30vh]' src={img} alt="" />

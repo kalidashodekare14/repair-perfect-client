@@ -7,12 +7,15 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import './ManageServices.css'
+import { Hourglass } from 'react-loader-spinner';
 
 
 const ManageService = () => {
 
     const { user } = UseAuth()
     const [manage, setManage] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [dataError, setDataError] = useState('')
 
     // console.log(user.email)
 
@@ -21,8 +24,30 @@ const ManageService = () => {
             .then(res => {
                 // console.log(res.data)
                 setManage(res.data)
+                setLoading(false)
             })
     }, [user])
+
+    if (loading) {
+        return (
+            <div className='min-h-screen flex justify-center items-center'>
+                <Hourglass
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="hourglass-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    colors={['#306cce', '#72a1ed']}
+                />
+            </div>
+        )
+    }
+
+
+    // if(!manage || manage.length === 0){
+    //     return setDataError('no data')
+    // }
 
     // console.log(manage)
 
@@ -67,13 +92,15 @@ const ManageService = () => {
             <div className='bg-fixed cover bg-no-repeat bg-cover bg-center h-[60vh]'>
                 <div className='flex flex-col items-center justify-center space-y-5 h-[60vh]'>
                     <h1 className='lg:text-6xl text-3xl uppercase text-yellow-500'>Manage Your Services</h1>
-                    
+
                 </div>
             </div>
+
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
+
                         <thead className='text-[16px] bg-black text-slate-400'>
                             <tr>
                                 <th>
@@ -90,7 +117,7 @@ const ManageService = () => {
                             </tr>
                         </thead>
                         <tbody className='h-[20vh]'>
-                            {/* row 1 */}
+
                             {
                                 manage.map((info, index) => (
                                     <tr key={info._id}>
@@ -124,7 +151,16 @@ const ManageService = () => {
                                     </tr>
                                 ))
                             }
-                            {/* row 2 */}
+
+                            {
+                                manage.length === 0 && (
+                                    <div className='flex items-center absolute left-[40%] right-[40%] top-20 text-center'>
+                                        <img className='w-10' src="https://img.hotimg.com/image1ae5758da6958592.png" alt="" />
+                                        <h1 className='text-4xl'>No Data</h1>
+                                    </div>
+                                )
+                            }
+
 
 
                         </tbody>

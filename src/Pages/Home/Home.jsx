@@ -17,19 +17,40 @@ import 'react-multi-carousel/lib/styles.css';
 import './Home.css'
 import Slider from '../Slider/Slider';
 import ProjectSlider from '../ProjectSlider/ProjectSlider';
+import { Hourglass } from 'react-loader-spinner';
 
 const Home = () => {
 
     const [popular, setPopular] = useState([])
     const [allView, setAllView] = useState(4)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/services`)
             .then(res => {
                 // console.log(res.data)
                 setPopular(res.data)
+                setLoading(false)
             })
     }, [])
+
+    if (loading) {
+        return (
+            <div className='min-h-screen flex justify-center items-center'>
+                <Hourglass
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="hourglass-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    colors={['#306cce', '#72a1ed']}
+                />
+            </div>
+        )
+
+    }
+
 
     const responsive = {
         desktop: {
@@ -103,7 +124,7 @@ const Home = () => {
                     }
                 </div>
                 <div className='flex justify-center pb-10'>
-                    <button onClick={() => setAllView(6)} className='btn border-blue-500 hover:text-white hover:bg-blue-500 bg-opacity-0'>Show All</button>
+                    <button onClick={() => setAllView(6)} className={`btn border-blue-500 hover:text-white hover:bg-blue-500 bg-opacity-0`}>Show All</button>
                 </div>
             </div>
             <div className='count bg-no-repeat bg-cover bg-center bg-black lg:rounded-full rounded-3xl   lg:w-2/3 m-auto my-20 '>
