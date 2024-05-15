@@ -61,7 +61,7 @@ const UpdateManage = () => {
                                 <input className='input input-bordered w-full' defaultValue={service_name} type="name" name='name' />
                             </div>
                             <div className='w-full'>
-                                <input className='input input-bordered w-full' defaultValue={'$' + price} type="price" name='price' />
+                                <input className='input input-bordered w-full' defaultValue={price} type="price" name='price' />
                             </div>
                         </div>
                         <div className='flex space-x-3 items-center'>
