@@ -136,7 +136,7 @@ const ManageService = () => {
                                             </div>
                                         </td>
                                         <td>{info.service_name}</td>
-                                        <td>{info.price}</td>
+                                        <td>${info.price}</td>
                                         <td>{info.ProviderName}</td>
                                         <td>{info.service_area}</td>
                                         <td>

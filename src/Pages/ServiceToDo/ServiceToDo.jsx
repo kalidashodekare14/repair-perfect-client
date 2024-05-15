@@ -19,7 +19,7 @@ const ServiceToDo = () => {
                 setServiceToDo(res.data)
                 setLoading(false)
             })
-    }, [user])
+    }, [user, serviceToDo])
 
     if (loading) {
         return (
