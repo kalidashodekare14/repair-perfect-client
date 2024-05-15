@@ -127,7 +127,7 @@ const Services = () => {
                     ))
                 }
             </div>
-            <div className='flex my-10 space-x-5 justify-center items-center '>
+            <div className=' flex my-10 lg:space-x-5 space-x-1 justify-center items-center '>
                 <button onClick={handlePrevPage} className='btn'>Prev</button>
                 {
                     pages.map(page => <button

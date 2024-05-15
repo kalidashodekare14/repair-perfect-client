@@ -66,7 +66,7 @@ const ServicesDetails = () => {
                     </div>
                     <div className="w-[40%] mx-20">
                         <h1 className="text-5xl font-bold font-poetsen">{details.service_name}</h1>
-                        <p className="py-6 text-[17px] font-[500] text-[#00000094]">{details.description.slice(0, 200)}</p>
+                        <p className="py-6 text-[17px] font-[500] text-[#00000094]">{details.description.slice(0, 150)}</p>
                         <div className="flex justify-between items-center ">
                             <div className="flex items-center border px-1 py-1">
                                 <div className="">
@@ -127,7 +127,7 @@ const ServicesDetails = () => {
                                             </div>
 
                                         </form>
-
+                                        <ToastContainer />
                                     </div>
                                 </div>
                             </dialog>
@@ -137,7 +137,7 @@ const ServicesDetails = () => {
                         </div>
                     </div>
                 </div>
-                <ToastContainer />
+
             </div>
         </div>
     );
