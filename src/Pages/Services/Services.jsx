@@ -96,8 +96,8 @@ const Services = () => {
                                 <div>
                                     <figure><img className='h-[40vh] max-w-sm rounded-lg shadow-2xl' src={service.photoUrl} alt="Shoes" /></figure>
                                 </div>
-                                <div class="absolute top-0 opacity-0 hover:opacity-100  transition duration-700 ease-in-out hover:bg-amber-500 h-[40vh] flex w-full p-1 justify-center [clip-path:polygon(100%_19%,24%_100%,100%_100%)]">
-                                    <p className='absolute  right-20 bottom-10 text-4xl text-white'>${service.price}</p>
+                                <div class="absolute top-0 bg-green-500 p-2 text-white">
+                                    <h1>${service.price}</h1>
                                 </div>
                             </div>
                             <div className="flex-1 p-5 space-y-5">

@@ -109,7 +109,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a className=" btn-ghost text-xl">
+                <a className="bg-[#fbd232] btn-ghost text-xl pr-10 rounded-tr-full rounded-br-full">
                     <Link to="/">
                         <img className='w-[140px]' src={logo} alt="" />
                     </Link>

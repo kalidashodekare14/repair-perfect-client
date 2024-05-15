@@ -100,7 +100,7 @@ const Home = () => {
                                 <div className="p-5 space-y-5">
                                     <div className='flex justify-between items-center'>
                                         <h2 className="text-3xl font-poetsen">{card.service_name}</h2>
-                                        <span className='text-[18px] font-poetsen'>{card.price}</span>
+                                        <span className='text-[18px] font-poetsen'>${card.price}</span>
                                     </div>
                                     <p className='font-[500] text-slate-500'>{card.description.slice(0, 150)}</p>
                                     <div className="flex items-center justify-between">

@@ -47,7 +47,7 @@ const PurchaseService = () => {
                     <h1 className='lg:text-6xl text-4xl uppercase text-yellow-500'>Your Purchase</h1>
                 </div>
             </div>
-            <div className='h-[40vh]'>
+            <div className=''>
                 <div className="overflow-x-auto ">
                     <table className="table">
                         {/* head */}
