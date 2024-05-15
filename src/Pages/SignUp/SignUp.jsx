@@ -54,20 +54,20 @@ const SignUp = () => {
                     <form onSubmit={handleRegister} className='space-y-3'>
                         <h1 className='text-center text-4xl text-white'>Sign Up</h1>
                         <div className='flex items-center  border px-3'>
-                            <label className=' text-2xl' htmlFor=""><FaUser /></label>
+                            <label className=' text-2xl' htmlFor=""><FaUser className='text-black' /></label>
                             <input className='bg-opacity-0 w-full input text-black placeholder-black' type="text" name="name" placeholder='Name' />
                         </div>
                         <div className='flex items-center  border px-3'>
-                            <label className='text-2xl' htmlFor=""><MdOutlineMail /></label>
+                            <label className='text-2xl' htmlFor=""><MdOutlineMail className='text-black' /></label>
                             <input className='w-full input bg-opacity-0 placeholder-black' type="email" name="email" placeholder='email' />
                         </div>
                         <div className='flex items-center  border px-3'>
-                            <label className=' text-2xl' htmlFor=""><IoMdPhotos />
+                            <label className=' text-2xl' htmlFor=""><IoMdPhotos className='text-black' />
                             </label>
                             <input className='w-full input bg-opacity-0 placeholder-black' type="photo" name="photo" placeholder='photo' />
                         </div>
                         <div className='flex items-center  border px-3'>
-                            <label className=' text-2xl' htmlFor=""><FaLock />
+                            <label className=' text-2xl' htmlFor=""><FaLock className='text-black' />
                             </label>
                             <input className='w-full input bg-opacity-0 placeholder-black' type="password" name="password" placeholder='password' />
                         </div>

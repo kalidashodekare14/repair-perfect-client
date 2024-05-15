@@ -65,15 +65,15 @@ const Login = () => {
                     <h1 className='text-center text-4xl text-white'>Log In</h1>
 
                     <div className='flex items-center  border px-3'>
-                        <label className='text-2xl' htmlFor=""><MdOutlineMail /></label>
+                        <label className='text-2xl' htmlFor=""><MdOutlineMail className='text-black' /></label>
                         <input className='w-full input bg-opacity-0 placeholder-black' type="email" name="email" placeholder='email' id="" />
                     </div>
                     <div className='flex items-center  border px-3'>
-                        <label className=' text-2xl' htmlFor=""><FaLock />
+                        <label className=' text-2xl' htmlFor=""><FaLock className='text-black' />
                         </label>
-                        <input className='w-full input bg-opacity-0 placeholder-black' type="password" name="password" placeholder='password' id="" />
+                        <input className='w-full  input bg-opacity-0 placeholder-black' type="password" name="password" placeholder='password' id="" />
                     </div>
-                    <input className='btn w-full mt-5 bg-opacity-5' type="submit" value="Log In" />
+                    <input className='btn w-full text-black mt-5 bg-opacity-5' type="submit" value="Log In" />
                 </form>
                 <div className='my-5 flex justify-center'>
                     <div onClick={handleGoogleLogin}>
