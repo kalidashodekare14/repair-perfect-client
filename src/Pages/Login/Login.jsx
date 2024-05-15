@@ -13,7 +13,8 @@ import { useState } from 'react';
 
 const Login = () => {
 
-    const { handleLoginUser, handleGoogleUser } = UseAuth()
+
+    const { user, handleLoginUser, handleGoogleUser } = UseAuth()
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -49,6 +50,9 @@ const Login = () => {
     }
 
 
+    if (user) {
+        navigate('/')
+    }
 
 
     return (
@@ -70,14 +74,14 @@ const Login = () => {
                         <input className='w-full input bg-opacity-0 placeholder-black' type="password" name="password" placeholder='password' id="" />
                     </div>
                     <input className='btn w-full mt-5 bg-opacity-5' type="submit" value="Log In" />
-                    <div className='my-5 flex justify-center'>
-                        <div onClick={handleGoogleLogin}>
-                            <button className='btn w-40'>
-                                <img className='w-10' src={google} alt="" />
-                            </button>
-                        </div>
-                    </div>
                 </form>
+                <div className='my-5 flex justify-center'>
+                    <div onClick={handleGoogleLogin}>
+                        <button className='btn w-40'>
+                            <img className='w-10' src={google} alt="" />
+                        </button>
+                    </div>
+                </div>
                 <p className='mt-10'>Don't have an account?
                     <span className='text-green-500'><Link to="/sign_up">Sign Up</Link></span></p>
             </div>

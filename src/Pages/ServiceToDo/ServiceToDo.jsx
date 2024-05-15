@@ -122,7 +122,7 @@ const ServiceToDo = () => {
 
                         {
                             serviceToDo.length === 0 && (
-                                <div className='flex items-center absolute left-[40%] right-[40%] top-20 text-center'>
+                                <div className='flex items-center absolute left-[40%] lg:left-[40%] lg:right-[40%] top-20 text-center'>
                                     <img className='w-10' src="https://img.hotimg.com/image1ae5758da6958592.png" alt="" />
                                     <h1 className='text-4xl'>No Data</h1>
                                 </div>

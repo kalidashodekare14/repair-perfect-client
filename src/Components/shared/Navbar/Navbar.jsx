@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink, Navigate } from 'react-router-dom';
 import UseAuth from '../../../Hooks/UseAuth';
+import logo from '/logo.png'
 
 const Navbar = () => {
 
@@ -60,11 +61,12 @@ const Navbar = () => {
 
     const handleLogout = () => {
         handleLogoutUser()
+        
     }
 
 
     return (
-        <div className="shadow absolute z-10 navbar bg-base-100">
+        <div className="shadow absolute z-10 navbar bg-base-100 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -87,7 +89,7 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     <Link to="/manage_service"
-                                        >Manage Service
+                                    >Manage Service
                                     </Link>
                                 </li>
                                 <li>
@@ -102,11 +104,15 @@ const Navbar = () => {
                                 </li>
 
                             </div>
-                                : <div>{ links }</div>
+                                : <div>{links}</div>
                         }
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className=" btn-ghost text-xl">
+                    <Link to="/">
+                        <img className='w-[140px]' src={logo} alt="" />
+                    </Link>
+                </a>
             </div>
             <div className="navbar-end  hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -142,7 +148,7 @@ const Navbar = () => {
                                     <Link to="/manage_service">Manage Service</Link>
                                 </li>
                                 <li>
-                                    <Link to="/booked_service">Booked Service</Link>
+                                    <Link to="/booked_service">Purchase Service</Link>
                                 </li>
                                 <li>
                                     <Link to="/service_to_do">Service To Do</Link>

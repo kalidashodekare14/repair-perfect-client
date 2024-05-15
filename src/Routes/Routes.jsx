@@ -7,7 +7,6 @@ import { SiGnome } from "react-icons/si";
 import SignUp from "../Pages/SignUp/SignUp";
 import AddService from "../Pages/AddService/AddService";
 import ManageService from "../Pages/ManageService/ManageService";
-import BookedService from "../Pages/BookedService/BookedService";
 import ServiceToDo from "../Pages/ServiceToDo/ServiceToDo";
 import ServicesDetails from "../Pages/ServicesDetails/ServicesDetails";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
@@ -15,11 +14,14 @@ import UpdateManage from "../Pages/ManageService/UpdateManage/UpdateManage";
 import HomeCardDetails from "../Pages/Home/HomeCardDetails";
 import Contact from "../Pages/Contact/Contact";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import PurchaseService from "../Pages/PurchaseService/PurchaseService";
+import ErrorPage from "./ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -64,7 +66,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/booked_service',
-                element: <PrivateRoutes><BookedService></BookedService></PrivateRoutes>
+                element: <PrivateRoutes><PurchaseService></PurchaseService></PrivateRoutes>
             },
             {
                 path: '/service_to_do',

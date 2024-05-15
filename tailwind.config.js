@@ -9,7 +9,8 @@ export default {
       fontFamily: {
         'roboto': "Roboto, sans-serif",
         'poetsen': "Poetsen One, sans-serif",
-        'montserrat': "Montserrat, sans-serif"
+        'montserrat': "Montserrat, sans-serif",
+        'poppins':"Poppins, sans-serif"
       },
 
     },

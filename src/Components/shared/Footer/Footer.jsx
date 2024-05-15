@@ -1,9 +1,9 @@
 import React from 'react';
-
 import './Footer.css'
 import { CiLocationOn, CiMail } from 'react-icons/ci';
 import { IoCallOutline } from 'react-icons/io5';
 import { IoIosSend, IoIosTimer } from 'react-icons/io';
+import logo from '/logof.png'
 
 const Footer = () => {
     return (
@@ -12,6 +12,7 @@ const Footer = () => {
                 <div className='lg:h-1/2 bg-fixed footer bg-no-repeat bg-cover bg-center'>
                     <div className='p-5 lg:px-20 py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-[#000000db] '>
                         <div className='text-white space-y-3'>
+                            <img className='w-40' src={logo} alt="" />
                             <h2 className='text-4xl font-montserrat'>Repair Perfect</h2>
                             <p className='leading-[20px] font-montserrat'>From fixing leaky faucets to renovating entire spaces, we provide comprehensive solutions to restore and enhance your home's functionality and aesthetics. </p>
                         </div>

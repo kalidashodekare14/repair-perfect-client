@@ -2,10 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import UseAuth from '../../Hooks/UseAuth';
 import { Helmet } from 'react-helmet-async';
-import './BookedService.css'
+import './PurchaseService.css'
 import { Hourglass } from 'react-loader-spinner';
 
-const BookedService = () => {
+const PurchaseService = () => {
 
     const { user } = UseAuth()
     const [booked, setBooked] = useState([])
@@ -35,7 +35,6 @@ const BookedService = () => {
             </div>
         )
     }
-
 
 
     return (
@@ -93,6 +92,7 @@ const BookedService = () => {
                                         </td>
                                         <td>{book.address}</td>
                                         <td>{book.service_taking_date}</td>
+                                       
                                         <td>
                                             <span className={`${book.serviceStatus === 'pending' ? 'bg-blue-500' : book.serviceStatus === 'working' ? 'bg-yellow-300' : book.serviceStatus === 'completed' ? 'bg-green-500' : ''} p-2 rounded-2xl`}>
                                                 {book.serviceStatus}
@@ -105,7 +105,7 @@ const BookedService = () => {
                         </tbody>
                         {
                             booked.length === 0 && (
-                                <div className='flex items-center absolute left-[40%] right-[40%] top-20 text-center'>
+                                <div className='flex items-center absolute left-[40%] lg:left-[40%] lg:right-[40%] top-20 text-center'>
                                     <img className='w-10' src="https://img.hotimg.com/image1ae5758da6958592.png" alt="" />
                                     <h1 className='text-4xl'>No Data</h1>
                                 </div>
@@ -120,4 +120,4 @@ const BookedService = () => {
     );
 };
 
-export default BookedService;
+export default PurchaseService;
