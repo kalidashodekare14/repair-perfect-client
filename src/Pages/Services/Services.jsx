@@ -19,7 +19,7 @@ const Services = () => {
     const pages = [...Array(numberOfPages).keys()];
     // console.log(pages)
 
-    console.log(currentPage)
+    // console.log(currentPage)
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/services?page=${currentPage}&size=${itemPerPage}`)
