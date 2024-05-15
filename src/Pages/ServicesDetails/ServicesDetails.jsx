@@ -37,7 +37,10 @@ const ServicesDetails = () => {
             price: details?.price,
             address: address,
             serviceStatus: 'pending',
-
+            provider: {
+                name: details?.provider.name,
+                email: details?.provider?.email
+            }
         }
         axios.post(`${import.meta.env.VITE_API_URL}/purchase`, bookInfo)
             .then(res => {
