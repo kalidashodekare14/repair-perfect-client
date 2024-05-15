@@ -93,12 +93,23 @@ const ServicesDetails = () => {
                                         <form onSubmit={handleBookData}>
                                             <img src={details.photoUrl} alt="" />
                                             <div className="space-y-5 mt-10">
+                                                <div className="w-full">
+                                                    <input className="input input-bordered w-full" disabled defaultValue={details?._id} type="id" name="id" />
+                                                </div>
                                                 <div className="flex space-x-3 items-center">
                                                     <div className="w-full">
                                                         <input className="input input-bordered w-full" disabled defaultValue={user?.displayName} type="name" name="name" />
                                                     </div>
                                                     <div className="w-full">
                                                         <input className="input input-bordered w-full disabled disabled:input" disabled defaultValue={user?.email} type="email" name="email" />
+                                                    </div>
+                                                </div>
+                                                <div className="flex space-x-3 items-center">
+                                                    <div className="w-full">
+                                                        <input className="input input-bordered w-full" disabled defaultValue={details?.provider?.name} type="providerName" name="providerName" />
+                                                    </div>
+                                                    <div className="w-full">
+                                                        <input className="input input-bordered w-full disabled disabled:input" disabled defaultValue={details?.provider?.email} type="ProviderEmail" name="ProviderEmail" />
                                                     </div>
                                                 </div>
                                                 <div className="flex space-x-3 items-center">
