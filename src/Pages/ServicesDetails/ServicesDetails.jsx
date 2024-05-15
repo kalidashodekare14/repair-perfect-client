@@ -20,7 +20,7 @@ const ServicesDetails = () => {
     const handleBookData = e => {
         e.preventDefault()
 
-        if(user.email === details.providerEmail){
+        if(user.email === details.provider.email){
             return toast.error("You cannot purchase the services you have added.");
         }
 
@@ -31,14 +31,16 @@ const ServicesDetails = () => {
             serviceId: details._id,
             service_Name: details?.service_name,
             service_image: details?.photoUrl,
-            provider_email: details?.providerEmail,
-            provider_name: details?.ProviderName,
             current_user_email: user?.email,
             current_user_name: user?.displayName,
             service_taking_date: startDate,
             price: details?.price,
             address: address,
-            serviceStatus: 'pending'
+            serviceStatus: 'pending',
+            provider: {
+                name:  details?.provider.name,
+                email: details?.provider?.email
+            }
         }
         axios.post(`${import.meta.env.VITE_API_URL}/purchase`, bookInfo)
         .then(res =>{
@@ -70,12 +72,12 @@ const ServicesDetails = () => {
                                 <div className="">
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                         <div className="w-56 rounded-full">
-                                            <img className="w-full" alt="" src={details.providerImage} />
+                                            <img className="w-full" alt="" src={details.provider.image} />
                                         </div>
                                     </div>
                                 </div>
                                 <div>
-                                    <h2>{details.ProviderName}</h2>
+                                    <h2>{details.provider.name}</h2>
                                 </div>
                             </div>
                             <div>

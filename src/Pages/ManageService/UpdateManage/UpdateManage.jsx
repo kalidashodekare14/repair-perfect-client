@@ -3,10 +3,12 @@ import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import './UpdateManage.css'
+import UseAuth from "../../../Hooks/UseAuth";
 
 const UpdateManage = () => {
 
 
+    const {user} = UseAuth()
     const manage = useLoaderData()
     const { _id, service_name, price, photoUrl, service_area, description } = manage
     // console.log(_id)
@@ -26,7 +28,8 @@ const UpdateManage = () => {
             price: price,
             photoUrl: photo,
             service_area: area,
-            description: description
+            description: description,
+            
         }
         axios.put(`${import.meta.env.VITE_API_URL}/update_services/${_id}`, addService)
             .then(res => {

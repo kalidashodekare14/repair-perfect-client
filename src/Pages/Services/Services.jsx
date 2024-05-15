@@ -78,11 +78,11 @@ const Services = () => {
                                     <div className='flex items-center border px-3 py-1 rounded'>
                                         <div tabIndex={0} role="button" className=" btn btn-ghost btn-circle avatar">
                                             <div className="w-10 rounded-full">
-                                                <img alt="Tailwind CSS Navbar component" src={service.providerImage} />
+                                                <img alt="Tailwind CSS Navbar component" src={service.provider.image} />
                                             </div>
                                         </div>
                                         <div>
-                                            <h1>{service.ProviderName}</h1>
+                                            <h1>{service.provider.name}</h1>
                                         </div>
                                     </div>
                                     <Link to={`/services_details/${service._id}`}>

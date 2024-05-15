@@ -22,7 +22,7 @@ const ManageService = () => {
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/services/${user?.email}`, { withCredentials: true })
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 setManage(res.data)
                 setLoading(false)
             })
@@ -136,7 +136,7 @@ const ManageService = () => {
                                             </div>
                                         </td>
                                         <td>{info.service_name}</td>
-                                        <td>${info.price}</td>
+                                        <td>{info.price}</td>
                                         <td>{info.ProviderName}</td>
                                         <td>{info.service_area}</td>
                                         <td>

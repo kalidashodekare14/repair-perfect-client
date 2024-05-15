@@ -24,9 +24,11 @@ const AddService = () => {
             photoUrl: photo,
             service_area: area,
             description: description,
-            providerEmail: user.email,
-            providerImage: user.photoURL,
-            ProviderName: user.displayName
+            provider: {
+                name: user?.displayName,
+                email: user?.email,
+                image: user?.photoURL
+            }
         }
 
         axios.post(`${import.meta.env.VITE_API_URL}/services`, addService)

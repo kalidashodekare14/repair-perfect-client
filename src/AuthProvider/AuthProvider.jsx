@@ -39,6 +39,7 @@ const AuthProvider = ({ children }) => {
         onAuthStateChanged(auth, currentUser => {
             const userEmail = currentUser?.email || user?.email
             const logginUser = { email: userEmail }
+            console.log(currentUser)
             setUser(currentUser)
             if (currentUser) {
                 axios.post(`${import.meta.env.VITE_API_URL}/jwt`, logginUser, { withCredentials: true })

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink, Navigate } from 'react-router-dom';
 import UseAuth from '../../../Hooks/UseAuth';
 import logo from '/logo.png'
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
 
@@ -61,7 +62,7 @@ const Navbar = () => {
 
     const handleLogout = () => {
         handleLogoutUser()
-        
+
     }
 
 
@@ -134,35 +135,44 @@ const Navbar = () => {
                 </div>
                 <div>
                     {
-                        user ? <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img src={user.photoURL} alt="" />
+                        user ?
+                            <span
+                                data-tooltip-id="my-tooltip"
+                                data-tooltip-content={user?.displayName}
+                                data-tooltip-place="left"
+                            >
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img src={user.photoURL} alt="" />
+                                        </div>
+                                    </div>
+                                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                       
+                                        <li>
+                                            <Link to="/add_service">Add Service</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/manage_service">Manage Service</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/booked_service">Purchase Service</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/service_to_do">Service To Do</Link>
+                                        </li>
+                                        <li><span onClick={handleLogout}>Logout</span></li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                <li>
-                                    <Link to="/add_service">Add Service</Link>
-                                </li>
-                                <li>
-                                    <Link to="/manage_service">Manage Service</Link>
-                                </li>
-                                <li>
-                                    <Link to="/booked_service">Purchase Service</Link>
-                                </li>
-                                <li>
-                                    <Link to="/service_to_do">Service To Do</Link>
-                                </li>
-                                <li><span onClick={handleLogout}>Logout</span></li>
-                            </ul>
-                        </div>
+                            </span>
+
                             : <Link to="/login">
                                 <button className='btn'>Login</button>
                             </Link>
                     }
                 </div>
 
-
+                <Tooltip id="my-tooltip" />
             </div>
 
         </div>
