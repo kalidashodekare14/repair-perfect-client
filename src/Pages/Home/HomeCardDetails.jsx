@@ -8,11 +8,11 @@ const HomeCardDetails = () => {
 
     return (
         <div>
-            <div className="hero">
+            <div className="mt-10 min-h-screen flex- justify-center items-center">
                 <div className="hero-content flex-col-reverse lg:flex-row-reverse">
                     <div>
                         <h1 className="text-5xl font-bold">{detail.service_name}</h1>
-                        <p className="py-6 text-[16px] font-[500] text-slate-500">{detail.description}</p>
+                        <p className="py-6 text-[16px] font-[500] text-slate-500">{detail.description.slice(0, 150)}</p>
                         <div className='flex space-x-20 items-center pb-10'>
                             <div className='flex items-center border px-3 py-1 rounded'>
                                 <div className='flex items-center'>
@@ -27,7 +27,7 @@ const HomeCardDetails = () => {
                                 </div>
                             </div>
                             <div>
-                                <span className='text-2xl font-poetsen'>{detail.price}</span>
+                                <span className='text-2xl font-poetsen'>${detail.price}</span>
                             </div>
                         </div>
                         <Link to="/">

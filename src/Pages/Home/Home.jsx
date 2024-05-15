@@ -102,7 +102,7 @@ const Home = () => {
                                         <h2 className="text-3xl font-poetsen">{card.service_name}</h2>
                                         <span className='text-[18px] font-poetsen'>{card.price}</span>
                                     </div>
-                                    <p className='font-[500] text-slate-500'>{card.description}</p>
+                                    <p className='font-[500] text-slate-500'>{card.description.slice(0, 150)}</p>
                                     <div className="flex items-center justify-between">
                                         <div className='flex items-center border px-3 py-1 rounded'>
                                             <div tabIndex={0} role="button" className=" btn btn-ghost btn-circle avatar">
