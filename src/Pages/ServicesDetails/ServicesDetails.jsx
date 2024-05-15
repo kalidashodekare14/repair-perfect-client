@@ -56,15 +56,15 @@ const ServicesDetails = () => {
             <Helmet>
                 <title>Services Details || Repair Perfect</title>
             </Helmet>
-            <div className="bg-white w-[60%]">
+            <div className="bg-white lg:w-[60%]">
                 <div className="flex justify-between items-center flex-col lg:flex-row-reverse">
-                    <div className="w-[40%] relative ">
-                        <img src={details.photoUrl} className="w-full h-[70vh] rounded-lg shadow-2xl" />
-                        <div class="absolute top-0 right-0 h-[50vh] w-[70%] bg-amber-500 flex p-1 justify-center [clip-path:polygon(100%_0%,_100%_43%,_58%_0%)]">
-                            <h1 className="absolute text-3xl top-7 right-3 rotate-45">${details.price}</h1>
+                    <div className="lg:w-[40%] relative ">
+                        <img src={details.photoUrl} className="w-full lg:h-[70vh] rounded-lg shadow-2xl" />
+                        <div class="absolute top-0 ">
+                            <h1 className="absolute text-3xl bg-green-600 p-3 text-white">${details.price}</h1>
                         </div>
                     </div>
-                    <div className="w-[40%] mx-20">
+                    <div className="lg:w-[40%] lg:mx-20 mx-3 my-5">
                         <h1 className="text-5xl font-bold font-poetsen">{details.service_name}</h1>
                         <p className="py-6 text-[17px] font-[500] text-[#00000094]">{details.description.slice(0, 150)}</p>
                         <div className="flex justify-between items-center ">
