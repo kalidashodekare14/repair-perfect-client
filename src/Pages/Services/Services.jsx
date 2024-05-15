@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import './Services.css'
 import { render } from 'react-dom';
 import { Hourglass } from 'react-loader-spinner';
@@ -11,16 +11,35 @@ const Services = () => {
     const [services, setServices] = useState([])
     const [search, setSearch] = useState([])
     const [loading, setLoading] = useState(true)
+    const [currentPage, setCurrentPage] = useState(0)
+    // const [itemPerPage, setItemPerPage] = useState(10)
+    const itemPerPage = 10
+    const { count } = useLoaderData()
+    const numberOfPages = Math.ceil(count / itemPerPage);
+    const pages = [...Array(numberOfPages).keys()];
+    // console.log(pages)
+
+    console.log(currentPage)
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/services`)
+        axios.get(`${import.meta.env.VITE_API_URL}/services?page=${currentPage}&size=${itemPerPage}`)
             .then(res => {
                 // console.log(res.data)
                 setServices(res.data)
                 setSearch(res.data)
                 setLoading(false)
             })
-    }, [])
+    }, [currentPage, itemPerPage])
+
+    // useEffect(() => {
+    //     axios.get(`${import.meta.env.VITE_API_URL}/services`)
+    //         .then(res => {
+    //             // console.log(res.data)
+    //             setServices(res.data)
+    //             setSearch(res.data)
+    //             setLoading(false)
+    //         })
+    // }, [])
 
     if (loading) {
         return (
@@ -43,6 +62,19 @@ const Services = () => {
     const handleSearch = e => {
         setSearch(services.filter(s => s.service_name.toLowerCase().includes(e.target.value)))
     }
+
+    const handlePrevPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
+    const handleNextPage = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
+
 
     return (
         <div>
@@ -94,6 +126,16 @@ const Services = () => {
                         </div>
                     ))
                 }
+            </div>
+            <div className='flex my-10 space-x-5 justify-center items-center '>
+                <button onClick={handlePrevPage} className='btn'>Prev</button>
+                {
+                    pages.map(page => <button
+                        onClick={() => setCurrentPage(page)}
+                        key={page}
+                        className={`${currentPage === page ? 'bg-green-500' : undefined} btn`}>{page}</button>)
+                }
+                <button onClick={handleNextPage} className='btn'>Next</button>
             </div>
 
         </div>

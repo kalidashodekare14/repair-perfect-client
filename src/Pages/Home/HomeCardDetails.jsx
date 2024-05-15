@@ -18,12 +18,12 @@ const HomeCardDetails = () => {
                                 <div className='flex items-center'>
                                     <div tabIndex={0} role="button" className=" btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
-                                            <img alt="Tailwind CSS Navbar component" src={detail.providerImage} />
+                                            <img alt="Tailwind CSS Navbar component" src={detail.provider.image} />
                                         </div>
                                     </div>
                                 </div>
                                 <div>
-                                    <h1>{detail.ProviderName}</h1>
+                                    <h1>{detail.provider.name}</h1>
                                 </div>
                             </div>
                             <div>

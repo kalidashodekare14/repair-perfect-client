@@ -105,9 +105,9 @@ const ServiceToDo = () => {
                                         </span>
                                     </td>
                                     <td>
-                                        <details className="dropdown">
+                                        <details  className="dropdown disabled">
                                             <summary className="m-1 btn">Status Customize</summary>
-                                            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                                            <ul  className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                                                 <li onClick={() => handleStatus(book._id, 'pending')}><a>pending</a></li>
                                                 <li onClick={() => handleStatus(book._id, 'working')}><a>working</a></li>
                                                 <li onClick={() => handleStatus(book._id, 'completed')}><a>completed</a></li>

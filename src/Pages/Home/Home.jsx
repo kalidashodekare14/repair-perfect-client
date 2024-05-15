@@ -107,11 +107,11 @@ const Home = () => {
                                         <div className='flex items-center border px-3 py-1 rounded'>
                                             <div tabIndex={0} role="button" className=" btn btn-ghost btn-circle avatar">
                                                 <div className="w-10 rounded-full">
-                                                    <img alt="Tailwind CSS Navbar component" src={card.providerImage} />
+                                                    <img alt="Tailwind CSS Navbar component" src={card.provider.image} />
                                                 </div>
                                             </div>
                                             <div>
-                                                <h1>{card.ProviderName}</h1>
+                                                <h1>{card.provider.name}</h1>
                                             </div>
                                         </div>
                                         <Link to={`/details/${card._id}`}>
