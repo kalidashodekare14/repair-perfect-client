@@ -20,7 +20,7 @@ const ServicesDetails = () => {
     const handleBookData = e => {
         e.preventDefault()
 
-        if(user.email === details.provider.email){
+        if (user.email === details.provider.email) {
             return toast.error("You cannot purchase the services you have added.");
         }
 
@@ -37,18 +37,15 @@ const ServicesDetails = () => {
             price: details?.price,
             address: address,
             serviceStatus: 'pending',
-            provider: {
-                name:  details?.provider.name,
-                email: details?.provider?.email
-            }
+
         }
         axios.post(`${import.meta.env.VITE_API_URL}/purchase`, bookInfo)
-        .then(res =>{
-            // console.log(res.data)
-            if(res.data.insertedId){
-                toast.success("Your Purchase Successfuly");
-            }
-        })
+            .then(res => {
+                // console.log(res.data)
+                if (res.data.insertedId) {
+                    toast.success("Your Purchase Successfuly");
+                }
+            })
     }
 
     return (
@@ -66,7 +63,7 @@ const ServicesDetails = () => {
                     </div>
                     <div className="w-[40%] mx-20">
                         <h1 className="text-5xl font-bold font-poetsen">{details.service_name}</h1>
-                        <p className="py-6 text-[17px] font-[500] text-[#00000094]">{details.description}</p>
+                        <p className="py-6 text-[17px] font-[500] text-[#00000094]">{details.description.slice(0, 200)}</p>
                         <div className="flex justify-between items-center ">
                             <div className="flex items-center border px-1 py-1">
                                 <div className="">
@@ -84,7 +81,7 @@ const ServicesDetails = () => {
                                 <h3 className='bg-[#2a9d8f] px-2 py-2 rounded-xl text-white'>{details.service_area}</h3>
                             </div>
                         </div>
-                        <div className="mt-10">
+                        <div className="mt-10 space-x-3">
                             {/* Open the modal using document.getElementById('ID').showModal() method */}
                             <button className='btn border-blue-500 hover:text-white hover:bg-blue-500 bg-opacity-0' onClick={() => document.getElementById('my_modal_1').showModal()}>Book Now</button>
                             <dialog id="my_modal_1" className="modal ">
@@ -131,6 +128,9 @@ const ServicesDetails = () => {
                                     </div>
                                 </div>
                             </dialog>
+                            <Link to='/services'>
+                                <button className='btn border-blue-500 hover:text-white hover:bg-blue-500 bg-opacity-0' >Go Back</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

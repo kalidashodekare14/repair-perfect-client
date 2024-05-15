@@ -13,7 +13,7 @@ const Services = () => {
     const [loading, setLoading] = useState(true)
     const [currentPage, setCurrentPage] = useState(0)
     // const [itemPerPage, setItemPerPage] = useState(10)
-    const itemPerPage = 10
+    const itemPerPage = 6
     const { count } = useLoaderData()
     const numberOfPages = Math.ceil(count / itemPerPage);
     const pages = [...Array(numberOfPages).keys()];
@@ -105,7 +105,7 @@ const Services = () => {
                                     <h2 className="text-[25px] font-poetsen">{service.service_name}</h2>
                                     <h3 className='bg-[#2a9d8f] px-2 py-2 rounded-xl text-white'>{service.service_area}</h3>
                                 </div>
-                                <p className='font-roboto text-slate-500 font-[600]'>{service.description}</p>
+                                <p className='font-roboto text-slate-500 font-[600]'>{service.description.slice(0, 200)}</p>
                                 <div className="flex justify-between items-center ">
                                     <div className='flex items-center border px-3 py-1 rounded'>
                                         <div tabIndex={0} role="button" className=" btn btn-ghost btn-circle avatar">
