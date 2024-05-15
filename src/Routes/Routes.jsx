@@ -31,12 +31,12 @@ const router = createBrowserRouter([
                 path: '/details/:id',
                 element: <PrivateRoutes><HomeCardDetails></HomeCardDetails></PrivateRoutes>,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/detail/${params.id}`)
-
+                
             },
             {
                 path: '/services',
                 element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/service_count')
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/service_count`)
             },
             {
                 path: '/services_details/:id',
