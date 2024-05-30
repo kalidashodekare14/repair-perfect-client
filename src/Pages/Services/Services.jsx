@@ -35,10 +35,23 @@ const Services = () => {
     const handleLowPrice = () => {
         const sort = services.sort((a, b) => a.price - b.price)
         setServices([...sort])
+        setSearch([...sort])
+        
     }
     const handleHighPrice = () => {
         const sort = services.sort((a, b) => b.price - a.price)
         setServices([...sort])
+        setSearch([...sort])
+    }
+
+    const handleSortChanges =(e) =>{
+        if(e.target.value === 'lowPrice'){
+            console.log('low')
+
+        }
+        else if(e.target.value === 'highPrice'){
+            console.log('hight')
+        }
     }
 
 
@@ -97,11 +110,11 @@ const Services = () => {
                 <div className='flex flex-col items-center justify-center space-y-5 h-[60vh]'>
                     <h1 className='text-6xl uppercase text-yellow-500'>Services</h1>
                     <input onChange={handleSearch} type="text" placeholder="Search Your Services" className="form-control input input-bordered w-full max-w-xs" />
-                    <details className="dropdown">
+                    <details  className="dropdown">
                         <summary className="m-1 btn">Price Sort</summary>
-                        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                            <li onClick={handleLowPrice}><a>Low Price</a></li>
-                            <li onClick={handleHighPrice}><a>High Price</a></li>
+                        <ul onChange={handleSortChanges} className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                            <li value="lowPrice" onClick={handleLowPrice}><a>Low Price</a></li>
+                            <li value="highPrice" onClick={handleHighPrice}><a>High Price</a></li>
                         </ul>
                     </details>
                 </div>
