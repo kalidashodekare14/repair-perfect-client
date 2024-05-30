@@ -20,6 +20,7 @@ const Services = () => {
     // console.log(pages)
 
     // console.log(currentPage)
+    console.log(services)
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/services?page=${currentPage}&size=${itemPerPage}`)
@@ -30,6 +31,17 @@ const Services = () => {
                 setLoading(false)
             })
     }, [currentPage, itemPerPage])
+
+    const handleLowPrice = () => {
+        const sort = services.sort((a, b) => a.price - b.price)
+        setServices([...sort])
+    }
+    const handleHighPrice = () => {
+        const sort = services.sort((a, b) => b.price - a.price)
+        setServices([...sort])
+    }
+
+
 
     // useEffect(() => {
     //     axios.get(`${import.meta.env.VITE_API_URL}/services`)
@@ -85,6 +97,13 @@ const Services = () => {
                 <div className='flex flex-col items-center justify-center space-y-5 h-[60vh]'>
                     <h1 className='text-6xl uppercase text-yellow-500'>Services</h1>
                     <input onChange={handleSearch} type="text" placeholder="Search Your Services" className="form-control input input-bordered w-full max-w-xs" />
+                    <details className="dropdown">
+                        <summary className="m-1 btn">Price Sort</summary>
+                        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                            <li onClick={handleLowPrice}><a>Low Price</a></li>
+                            <li onClick={handleHighPrice}><a>High Price</a></li>
+                        </ul>
+                    </details>
                 </div>
             </div>
 
