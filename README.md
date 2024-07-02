@@ -7,6 +7,10 @@
 ## 🔗 Live Link: [Repair Perfect](https://repair-perfect.web.app)
 
 
+## Overview
+
+This project is about home repair. This project has various services for house repair. Any service can be taken by anyone to repair his house.
+
 
 ## Features
 
@@ -36,3 +40,29 @@
 ## Category Name:  
 - Home Repair Services
 
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://link-to-project
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
